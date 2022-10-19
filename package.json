@@ -1,12 +1,12 @@
 {
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "typescript": "^4.8.4"
   },
   "name": "api-facebookclone",
   "description": "application cloning features of facebook api",
   "version": "1.0.0",
   "main": "index.js",
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
