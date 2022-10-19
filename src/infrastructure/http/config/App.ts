@@ -1,11 +1,10 @@
-import { Router, Express } from "express";
+import Express from "express";
 import setupMiddleware from "./middleware";
 import setupRouter from "./Router";
-export default (app: Express): void => {
-  const router = Router();
 
-  setupMiddleware(app);
-  setupRouter(app);
+const app = Express();
 
-  app.use("/teste", router);
-};
+setupMiddleware(app);
+setupRouter(app);
+
+export default app;
