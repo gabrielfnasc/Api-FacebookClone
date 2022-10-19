@@ -11,7 +11,11 @@ export const ok = (data: any): HttpResponse => ({
   body: data,
 });
 
-export const serverError = (reason: string): HttpResponse => ({
+export const serverError = (): HttpResponse => ({
   statusCode: 500,
-  body: new ServerError(reason),
+  body: new ServerError("Internal Server Error"),
+});
+export const created = (data: any): HttpResponse => ({
+  statusCode: 201,
+  body: data,
 });
