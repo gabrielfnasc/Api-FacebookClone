@@ -6,4 +6,8 @@ export interface User {
   description: string;
 
   createdAt: Date;
+
+  isActive: boolean;
+
+  isOn: boolean;
 }
