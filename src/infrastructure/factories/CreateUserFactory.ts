@@ -8,9 +8,12 @@ import { ValidatorInputLength } from "../../application/validator/ValidatorInput
 import { ValidatorEmail } from "../../application/validator/ValidatorEmail";
 import { JwtAdapter } from "../../infrastructure/adapters/JwtAdapter";
 import env from "../../infrastructure/http/config/env";
+import { BCryptAdapter } from "../adapters/BCryptAdapter";
 
 export class CreateUserFactory {
   static build(): BaseController {
+    const bcryptAdapter = new BCryptAdapter(10);
+
     const jwtAdapter = new JwtAdapter(env.jwtSecretKey);
 
     const validatorUseCase = new ValidatorComposite([
@@ -29,7 +32,8 @@ export class CreateUserFactory {
     const usecase = new CreateUserUseCase(
       repository,
       validatorUseCase,
-      jwtAdapter
+      jwtAdapter,
+      bcryptAdapter
     );
 
     return new CreateUserController(usecase, validatorRequest);
