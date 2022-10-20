@@ -1,5 +1,5 @@
 import { Hash } from "../../application/cryptography";
-import * as bcrypt from "bcrypt";
+import bcrypt from "bcrypt";
 
 export class BCryptAdapter implements Hash {
   constructor(private readonly salt: number) {}
