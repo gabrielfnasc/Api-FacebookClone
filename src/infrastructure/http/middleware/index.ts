@@ -1,3 +1,4 @@
 export * from "./BodyParser";
-export * from "./cors";
+export * from "./Cors";
+export * from "./BodyParser";
 export * from "./ContentType";

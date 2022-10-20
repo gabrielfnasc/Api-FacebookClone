@@ -7,9 +7,9 @@ export class MongoHelper {
     this.client = await MongoClient.connect(uri);
   }
 
-  private static async disconnect(): Promise<void> {
-    this.client.close();
-  }
+  // private static async disconnect(): Promise<void> {
+  //   this.client.close();
+  // }
 
   public static getCollection(name: string): Collection {
     if (this.client) return this.client.db().collection(name);

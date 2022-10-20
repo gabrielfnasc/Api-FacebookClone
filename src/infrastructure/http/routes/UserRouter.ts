@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { ExpressRouterAdapter } from "../../adapters/ExpressRouterAdapter";
+import { ExpressRouterAdapter } from "../../http/adapters/ExpressRouterAdapter";
 
 export default (router: Router): void => {
   router.post("/user", ExpressRouterAdapter());

@@ -1,7 +1,7 @@
 import { Usecase } from "./UseCase";
 import { UserRepository } from "../repositories/UserRepository";
 import { Validator } from "../../domain/validator/validator";
-import { Criptography, Hash } from "../criptography";
+import { Cryptography, Hash } from "../cryptography";
 
 export type InputCreateUserDto = {
   name: string;
@@ -23,7 +23,7 @@ export class CreateUserUseCase
     private readonly validator: Validator,
     private readonly hash: Hash,
 
-    private readonly criptography: Criptography
+    private readonly criptography: Cryptography
   ) {}
   async execute(data: InputCreateUserDto): Promise<OutputCreateUserDto> {
     this.validator.validate(data);

@@ -32,8 +32,8 @@ export class CreateUserFactory {
     const usecase = new CreateUserUseCase(
       repository,
       validatorUseCase,
-      jwtAdapter,
-      bcryptAdapter
+      bcryptAdapter,
+      jwtAdapter
     );
 
     return new CreateUserController(usecase, validatorRequest);

@@ -1,7 +1,7 @@
 import { NextFunction, Response, Request } from "express";
 
 export const contentType = (
-  req: Request,
+  _req: Request,
   res: Response,
   next: NextFunction
 ): void => {
