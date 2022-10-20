@@ -5,6 +5,7 @@ import {
 } from "../../http/presentation/controllers/helpers/HttpHelper";
 import { BaseController } from "../BaseController";
 import { CreateUserUseCase } from "../../../application/usecase/CreateUserUseCase";
+import { Validator } from "../../../domain/validator/validator";
 
 export type CreateUserControllerRequest = {
   name: string;
@@ -13,9 +14,13 @@ export type CreateUserControllerRequest = {
 };
 
 export class CreateUserController implements BaseController {
-  constructor(private readonly usecase: CreateUserUseCase) {}
+  constructor(
+    private readonly usecase: CreateUserUseCase,
+    private readonly validator: Validator
+  ) {}
   async handle(request: CreateUserControllerRequest): Promise<HttpResponse> {
     try {
+      this.validator.validate(request);
       const { name, email, password } = request;
       const output = await this.usecase.execute({
         name,
