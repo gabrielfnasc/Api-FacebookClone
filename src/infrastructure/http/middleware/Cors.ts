@@ -6,8 +6,8 @@ export const cors = (
   next: NextFunction
 ): void => {
   res.set("access-control-allow-origin", "*");
-  res.set("access-control-allow-headers,", "*");
-  res.set("access-control-allow-origins,", "*");
+  res.set("access-control-allow-headers", "*");
+  res.set("access-control-allow-methods", "*");
 
   next();
 };
