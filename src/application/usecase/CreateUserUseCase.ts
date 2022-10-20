@@ -24,7 +24,7 @@ export class CreateUserUseCase
     private readonly validator: Validator,
     private readonly hash: Hash,
 
-    private readonly criptography: Cryptography
+    private readonly cryptography: Cryptography
   ) {}
   async execute(data: InputCreateUserDto): Promise<OutputCreateUserDto> {
     this.validator.validate(data);
@@ -42,7 +42,7 @@ export class CreateUserUseCase
       password: hash,
     });
 
-    const accessToken = await this.criptography.encrypt(userId);
+    const accessToken = await this.cryptography.encrypt(userId);
 
     return { accessToken };
   }
