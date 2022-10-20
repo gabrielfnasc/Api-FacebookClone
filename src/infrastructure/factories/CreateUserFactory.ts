@@ -9,6 +9,11 @@ import { ValidatorEmail } from "../../application/validator/ValidatorEmail";
 
 export class CreateUserFactory {
   static build(): BaseController {
+
+
+    const jwtAdapter = new  
+
+
     const validatorUseCase = new ValidatorComposite([
       new ValidatorInputLength("password", 5),
       new ValidatorEmail("email"),
