@@ -1,7 +1,7 @@
 import { RequiredMaxLengthDomainError } from "../../domain/erros/RequiredMaxLengthDomainError";
 import { Validator } from "../../domain/validator/validator";
 
-export class ValidatorInputLenght implements Validator {
+export class ValidatorInputLength implements Validator {
   constructor(
     private readonly paramName: string,
     private readonly maxLen: number
