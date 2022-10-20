@@ -2,6 +2,7 @@ import { Usecase } from "./UseCase";
 import { UserRepository } from "../repositories/UserRepository";
 import { Validator } from "../../domain/validator/validator";
 import { Cryptography, Hash } from "../cryptography";
+import { EmailAlreadyRegisteredError } from "../../domain/erros";
 
 export type InputCreateUserDto = {
   name: string;
@@ -28,6 +29,11 @@ export class CreateUserUseCase
   async execute(data: InputCreateUserDto): Promise<OutputCreateUserDto> {
     this.validator.validate(data);
     const { email, password } = data;
+
+    const user = await this.repository.findByEmail(email);
+    if (user) {
+      throw new EmailAlreadyRegisteredError();
+    }
 
     const hash = await this.hash.create(password);
 
