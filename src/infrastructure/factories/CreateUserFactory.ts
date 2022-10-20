@@ -6,13 +6,12 @@ import { ValidatorComposite } from "../../application/validator/ValidatorComposi
 import { ValidatorRequiredParam } from "../../application/validator/ValidatorRequiredParam";
 import { ValidatorInputLength } from "../../application/validator/ValidatorInputLength";
 import { ValidatorEmail } from "../../application/validator/ValidatorEmail";
+import { JwtAdapter } from "../../infrastructure/adapters/JwtAdapter";
+import env from "../../infrastructure/http/config/env";
 
 export class CreateUserFactory {
   static build(): BaseController {
-
-
-    const jwtAdapter = new  
-
+    const jwtAdapter = new JwtAdapter(env.jwtSecretKey);
 
     const validatorUseCase = new ValidatorComposite([
       new ValidatorInputLength("password", 5),
@@ -27,7 +26,11 @@ export class CreateUserFactory {
     ]);
 
     const repository = new UserRepositoryMongoDB();
-    const usecase = new CreateUserUseCase(repository, validatorUseCase);
+    const usecase = new CreateUserUseCase(
+      repository,
+      validatorUseCase,
+      jwtAdapter
+    );
 
     return new CreateUserController(usecase, validatorRequest);
   }

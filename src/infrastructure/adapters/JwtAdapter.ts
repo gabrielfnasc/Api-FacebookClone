@@ -1,5 +1,5 @@
-import { Cryptography } from '@src/application/ports/cryptography';
-import jwt from 'jsonwebtoken';
+import { Cryptography } from "../../application/cryptography/Cryptography";
+import jwt from "jsonwebtoken";
 
 export class JwtAdapter implements Cryptography {
   constructor(private readonly secret: string) {}
