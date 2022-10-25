@@ -1,4 +1,4 @@
-import { ServerError } from "../errors/ServerError";
+import { ApiError } from "../../../../../domain/erros/ApiError";
 import { HttpResponse } from "../helpers/Http";
 
 export const badRequest = (error: Error): HttpResponse => ({
@@ -11,9 +11,11 @@ export const ok = (data: any): HttpResponse => ({
   body: data,
 });
 
-export const serverError = (): HttpResponse => ({
-  statusCode: 500,
-  body: new ServerError("Internal Server Error"),
+export const serverError = (
+  error: Error & Partial<ApiError>
+): HttpResponse => ({
+  statusCode: error.statusCode ?? 500,
+  body: error.statusCode ? error.message : "Internal Server Error",
 });
 export const created = (data: any): HttpResponse => ({
   statusCode: 201,

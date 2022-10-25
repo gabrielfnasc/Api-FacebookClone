@@ -31,7 +31,7 @@ export class CreateUserController implements BaseController {
       });
       return created(output);
     } catch (error) {
-      return serverError();
+      return serverError(error as Error);
     }
   }
 }
