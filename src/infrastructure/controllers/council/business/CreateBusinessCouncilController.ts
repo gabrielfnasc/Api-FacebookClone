@@ -1,9 +1,10 @@
-import e from 'express';
-import { Council } from "../../../domain/entities/Council";
-import { Validator } from '../../../domain/validator/validator';
-import { HttpResponse } from "../../http/presentation/controllers/helpers/Http";
-import { serverError } from '../../http/presentation/controllers/helpers/HttpHelper';
-import { BaseController } from "../BaseController";
+import { CreateBusinessCouncilUseCase } from "../../../../application/usecase/council/business/CreateBusinessCouncilUseCase";
+import { Council } from "../../../../domain/entities/Council";
+import { Validator } from "../../../../domain/validator/validator";
+import { created } from "../../../http/presentation/controllers/helpers/HttpHelper";
+import { HttpResponse } from "../../../http/presentation/controllers/helpers/Http";
+import { serverError } from "../../../http/presentation/controllers/helpers/HttpHelper";
+import { BaseController } from "../../BaseController";
 
 export type CreateBusinessCouncilRequest = {
   userId: string;
@@ -11,14 +12,23 @@ export type CreateBusinessCouncilRequest = {
 };
 
 export class CreateBusinessCouncilController implements BaseController {
-constructor(private readonly validator : Validator,private readonly usecase :){}
+  constructor(
+    private readonly validator: Validator,
+    private readonly usecase: CreateBusinessCouncilUseCase
+  ) {}
 
- async  handle(request: CreateBusinessCouncilRequest): Promise<HttpResponse> {
-   try {
-    this.validator.validate(request);
-const output= await this.usecase
-   } catch (error) {
-    return serverError(error as Error)
-   }
+  async handle(request: CreateBusinessCouncilRequest): Promise<HttpResponse> {
+    try {
+      this.validator.validate(request);
+      const { userId, council } = request;
+      const output = await this.usecase.execute({
+        userId,
+        council,
+        createdAt: new Date(),
+      });
+      return created(output);
+    } catch (error) {
+      return serverError(error as Error);
+    }
   }
 }
