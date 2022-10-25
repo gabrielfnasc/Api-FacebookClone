@@ -1,6 +1,6 @@
 import { BaseMongoRepository } from "./BaseMongoRepository";
 import { UserRepository } from "../../../application/repositories/UserRepository";
-import { InputCreateUserDto } from "../../../application/usecase/CreateUserUseCase";
+import { InputCreateUserDto } from "../../../application/usecase/user/CreateUserUseCase";
 import { MongoHelper } from "./MongoHelper";
 import { User } from "../../../domain/entities/User";
 

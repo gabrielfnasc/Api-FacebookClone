@@ -1,8 +1,8 @@
-import { Usecase } from "./UseCase";
-import { UserRepository } from "../repositories/UserRepository";
-import { Validator } from "../../domain/validator/validator";
-import { Cryptography, Hash } from "../cryptography";
-import { EmailAlreadyRegisteredError } from "../../domain/erros";
+import { Usecase } from "../UseCase";
+import { UserRepository } from "../../repositories/UserRepository";
+import { Validator } from "../../../domain/validator/validator";
+import { Cryptography, Hash } from "../../cryptography";
+import { EmailAlreadyRegisteredError } from "../../../domain/erros";
 
 export type InputCreateUserDto = {
   name: string;

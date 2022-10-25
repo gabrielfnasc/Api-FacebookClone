@@ -1,4 +1,4 @@
-import { CreateUserUseCase } from "../../application/usecase/CreateUserUseCase";
+import { CreateUserUseCase } from "../../application/usecase/user/CreateUserUseCase";
 import { BaseController } from "../controllers/BaseController";
 import { CreateUserController } from "../controllers/User/CreateUserController";
 import { UserRepositoryMongoDB } from "../database/mongodb/UserRepositoryMongoDb";

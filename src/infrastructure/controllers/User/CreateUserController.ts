@@ -4,7 +4,7 @@ import {
   serverError,
 } from "../../http/presentation/controllers/helpers/HttpHelper";
 import { BaseController } from "../BaseController";
-import { CreateUserUseCase } from "../../../application/usecase/CreateUserUseCase";
+import { CreateUserUseCase } from "../../../application/usecase/user/CreateUserUseCase";
 import { Validator } from "../../../domain/validator/validator";
 
 export type CreateUserControllerRequest = {
