@@ -4,7 +4,7 @@ import { ExpressRouterAdapter } from "../adapters/ExpressRouterAdapter";
 
 export default (router: Router): void => {
   router.post(
-    "/business",
+    "/business/:userId",
     ExpressRouterAdapter(CreateBusinessCouncilFactory.build())
   );
 };
