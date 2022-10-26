@@ -1,4 +1,5 @@
 import { Council } from "../../../../domain/entities/Council";
+import { AlreadyExistError } from "../../../../domain/erros/AlreadyExistsError";
 import { Validator } from "../../../../domain/validator/validator";
 import { NotFoundHttpError } from "../../../../infrastructure/http/errors";
 import { BusinessCouncilRepository } from "../../../repositories/council/BusinessCouncilRepository";
@@ -28,6 +29,7 @@ export class CreateBusinessCouncilUseCase
     }
     const council = await this.businessCouncilRepo.find(data.council.content);
     if (council) {
+      throw new AlreadyExistError("Content");
     }
     await this.businessCouncilRepo.create(data);
   }
