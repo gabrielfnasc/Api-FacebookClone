@@ -30,6 +30,7 @@ export class CreateUserUseCase
     this.validator.validate(data);
     const { email, password } = data;
 
+    //check if user exists
     const user = await this.repository.findByEmail(email);
     if (user) {
       throw new EmailAlreadyRegisteredError();

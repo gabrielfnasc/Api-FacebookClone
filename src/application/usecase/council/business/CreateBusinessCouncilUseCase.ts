@@ -24,16 +24,19 @@ export class CreateBusinessCouncilUseCase
   async execute(data: InputCreateBusinessCouncilDto): Promise<void> {
     this.validator.validate(data);
 
+    // check the length of the council content
     const minLenght: number = 10;
     if (data.council.content.length < minLenght) {
       throw new RequiredMinLengthDomainError("content", minLenght);
     }
 
+    //check if user exists
     const user = await this.userRepo.findById(data.userId);
     if (!user) {
       throw new NotFoundHttpError("Nenhum usuário encontrado!");
     }
 
+    //check if the user don´t repeat the same content
     const council = await this.businessCouncilRepo.find(data.council.content);
     if (council) {
       throw new AlreadyExistError("Content");
