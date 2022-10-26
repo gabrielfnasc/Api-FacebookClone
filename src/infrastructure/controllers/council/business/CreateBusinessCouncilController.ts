@@ -21,12 +21,12 @@ export class CreateBusinessCouncilController implements BaseController {
     try {
       this.validator.validate(request);
       const { userId, council } = request;
-      const output = await this.usecase.execute({
+      await this.usecase.execute({
         userId,
         council,
         createdAt: new Date(),
       });
-      return created(output);
+      return created({ message: "Council created successfully!" });
     } catch (error) {
       return serverError(error as Error);
     }

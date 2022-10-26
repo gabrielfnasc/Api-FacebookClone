@@ -15,7 +15,7 @@ export class CreateBusinessCouncilFactory {
     ]);
 
     const validatorUseCase = new ValidatorComposite([
-      new ValidatorRequiredParamObject("content", "council"),
+      new ValidatorRequiredParamObject("council", "content"),
     ]);
     const userRepo = new UserRepositoryMongoDB();
 
