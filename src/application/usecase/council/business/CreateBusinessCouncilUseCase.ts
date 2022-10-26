@@ -23,9 +23,11 @@ export class CreateBusinessCouncilUseCase
     this.validator.validate(data);
 
     const user = await this.userRepo.findById(data.userId);
-
     if (!user) {
       throw new NotFoundHttpError("Nenhum usuário encontrado!");
+    }
+    const council = await this.businessCouncilRepo.find(data.council.content);
+    if (council) {
     }
     await this.businessCouncilRepo.create(data);
   }
