@@ -1,4 +1,4 @@
-import { RequiredMaxLengthDomainError } from "../../domain/erros/RequiredMaxLengthDomainError";
+import { RequiredMinLengthDomainError } from "../../domain/erros/RequiredMinLengthDomainError";
 import { Validator } from "../../domain/validator/validator";
 
 export class ValidatorInputLength implements Validator {
@@ -10,7 +10,7 @@ export class ValidatorInputLength implements Validator {
   validate(value: any): void {
     const paramValue = value[this.paramName] as string;
     if (paramValue.length < this.maxLen) {
-      throw new RequiredMaxLengthDomainError(this.paramName, this.maxLen);
+      throw new RequiredMinLengthDomainError(this.paramName, this.maxLen);
     }
   }
 }
