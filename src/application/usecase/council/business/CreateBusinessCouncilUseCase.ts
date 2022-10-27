@@ -1,5 +1,5 @@
 import { Council } from "../../../../domain/entities/Council";
-import { RequiredMinLengthDomainError } from "../../../../domain/erros";
+import { RequiredMinLengthDomainError } from "../../../../domain/erros/RequiredMinLengthDomainError";
 import { AlreadyExistError } from "../../../../domain/erros/AlreadyExistsError";
 import { Validator } from "../../../../domain/validator/validator";
 import { NotFoundHttpError } from "../../../../infrastructure/http/errors";
