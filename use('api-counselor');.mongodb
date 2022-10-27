@@ -1,0 +1,78 @@
+use('api-counselor');
+
+db.business.aggregate([
+        {
+          $match: {
+            councils: { $elemMatch: { content: "conten2t" } },
+          },
+        },
+          { "$exists" : true },
+        {
+          $redact: {
+            $cond: {
+              if: {
+                $or: [{ $eq: ["$content", "content2"] }, { $not: "$content" }],
+              },
+              then: "$$DESCEND",
+              else: "$$PRUNE",
+            },
+          },
+        },
+      ])
+
+  // db.business.find(
+  //    {"councils.content":"hello world7"},
+  //    {_id:0, councils: {$elemMatch : {content: "hello world7"}}})
+
+// db.business.find({"councils.content" : "hello world"}, {"councils.$" : 1})
+
+
+// db.business.aggregate([
+//     { $match: { 
+//          councils: { $elemMatch: {content: "hello world4"} } 
+//     }},
+//     { $redact : {
+//          $cond: {
+//              if: { $or : [{ $eq: ["$content","hello world4"] }, { $not : "$content" }]},
+//              then: "$$DESCEND",
+//              else: "$$PRUNE"
+//          }
+//     }}]);
+
+// db.business.aggregate(
+//   // Start with a $match pipeline which can take advantage of an index and limit documents processed
+//   { $match : {
+//      "councils.content": "hello world5"
+//   }},
+//   { $unwind : "$councils" },
+//   { $match : {
+//      "councils.content": "hello world5"
+//   }}
+// )
+
+
+// db.business.find({
+//         $and: [{ "councils.content": "hello world" },],
+//       })
+//       .toArray();
+
+
+// db.business.aggregate([
+//         {
+//           $match: {
+//             councils: { $elemMatch: { content: "hello world7" } },
+//           },
+//         },
+//         {
+//           $redact: {
+//             $cond: {
+//               if: {
+//                 $or: [{ $eq: ["$content", "hello world7"] }, { $not: "$content" }],
+//               },
+//               then: "$$DESCEND",
+//               else: "$$PRUNE",
+//             },
+//           },
+//         },
+//       ])
+//       .toArray();
