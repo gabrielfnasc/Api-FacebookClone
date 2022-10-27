@@ -1,24 +1,34 @@
 use('api-counselor');
 
-db.business.aggregate([
-        {
-          $match: {
-            councils: { $elemMatch: { content: "conten2t" } },
-          },
-        },
-          { "$exists" : true },
-        {
-          $redact: {
-            $cond: {
-              if: {
-                $or: [{ $eq: ["$content", "content2"] }, { $not: "$content" }],
-              },
-              then: "$$DESCEND",
-              else: "$$PRUNE",
-            },
-          },
-        },
-      ])
+
+
+const query = [{ "councils.content": "hello" }];
+    //  db.business.findOne({
+     
+    //   $and: query,
+    // });
+
+
+
+// db.business.aggregate([
+//         {
+//           $match: {
+//             councils: { $elemMatch: { content: "conten2t" } },
+//           },
+//         },
+//           { "$exists" : true },
+//         {
+//           $redact: {
+//             $cond: {
+//               if: {
+//                 $or: [{ $eq: ["$content", "content2"] }, { $not: "$content" }],
+//               },
+//               then: "$$DESCEND",
+//               else: "$$PRUNE",
+//             },
+//           },
+//         },
+//       ])
 
   // db.business.find(
   //    {"councils.content":"hello world7"},
