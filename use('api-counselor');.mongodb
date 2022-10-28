@@ -1,8 +1,56 @@
 use('api-counselor');
 
+db.business.aggregate([
+  {
+    $lookup: {
+      from: 'business',
+      localField: 'userId',
+      foreignField: 'userId',
+      as: 'originals2'
+    }
+  },
+  {
+    $merge: {
+      into: 'councils', // collection-name
+    // the identifier, used to identify the document to merge into
+    }
+  }
+])
+// db.councils.aggregate([{
+// $lookup: {
+// from: 'business',
+// localField: 'userId',
+// foreignField: 'userId',
+// as: 'councils'
+// }}]).pretty();
 
+// db.createCollection('councils')
 
-const query = [{ "councils.content": "hello" }];
+// db.business.aggregate([
+//         {
+//           $lookup: {
+//             From: "councils",
+//             LocalField: "content",
+//             foreignField: "content",
+//             as: "contents",
+//           },
+//         },
+//       ])
+//       .toArray();
+
+// db.councils.aggregate([
+//         {
+//           $lookup: {
+//             From: "business",
+//             LocalField: "content",
+//             foreignField: "content",
+//             as: "contents",
+//           },
+//         },
+//       ])
+//       .toArray();
+
+// const query = [{ "councils.content": "hello" }];
     //  db.business.findOne({
      
     //   $and: query,
