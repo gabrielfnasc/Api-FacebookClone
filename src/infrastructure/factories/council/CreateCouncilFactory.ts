@@ -4,7 +4,7 @@ import { ValidatorRequiredParam } from "../../../application/validator/Validator
 import { ValidatorRequiredParamObject } from "../../../application/validator/ValidatorRequiredParamObject";
 import { BaseController } from "../../controllers/BaseController";
 import { CreateCouncilController } from "../../controllers/council/business/CreateCouncilController";
-import { CouncilRepositoryMongoDb } from "../../database/mongodb/council/CouncilRepositoryMongoDb";
+import { CouncilRepositoryMongoDb } from "../../database/mongodb/CouncilRepositoryMongoDb";
 import { UserRepositoryMongoDB } from "../../database/mongodb/UserRepositoryMongoDb";
 
 export class CreateCouncilFactory {

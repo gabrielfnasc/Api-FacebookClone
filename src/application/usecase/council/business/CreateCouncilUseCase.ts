@@ -2,7 +2,7 @@ import { Council } from "../../../../domain/entities/Council";
 import { RequiredMinLengthDomainError } from "../../../../domain/erros/RequiredMinLengthDomainError";
 import { Validator } from "../../../../domain/validator/validator";
 import { NotFoundHttpError } from "../../../../infrastructure/http/errors";
-import { CouncilRepository } from "../../../repositories/council/CouncilRepository";
+import { CouncilRepository } from "../../../repositories/CouncilRepository";
 import { UserRepository } from "../../../repositories/UserRepository";
 import { Usecase } from "../../UseCase";
 
