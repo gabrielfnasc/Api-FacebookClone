@@ -9,7 +9,8 @@ export class TypeRepositoryMongoDb
   collection(): string {
     return "types";
   }
-  find(name: string): Promise<Type> {
-    throw new Error("Method not implemented.");
+  async find(name: string): Promise<Type> {
+    const typeDocument = await this.getCollection.findOne({ name });
+    return typeDocument && typeDocument.map(typeDocument);
   }
 }
