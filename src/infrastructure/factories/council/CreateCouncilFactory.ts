@@ -3,8 +3,9 @@ import { ValidatorComposite } from "../../../application/validator/ValidatorComp
 import { ValidatorRequiredParam } from "../../../application/validator/ValidatorRequiredParam";
 import { ValidatorRequiredParamObject } from "../../../application/validator/ValidatorRequiredParamObject";
 import { BaseController } from "../../controllers/BaseController";
-import { CreateCouncilController } from "../../controllers/council/business/CreateCouncilController";
+import { CreateCouncilController } from "../../controllers/council/CreateCouncilController";
 import { CouncilRepositoryMongoDb } from "../../database/mongodb/CouncilRepositoryMongoDb";
+import { TypeRepositoryMongoDb } from "../../database/mongodb/TypeRepositoryMongoDb";
 import { UserRepositoryMongoDB } from "../../database/mongodb/UserRepositoryMongoDb";
 
 export class CreateCouncilFactory {
@@ -21,10 +22,13 @@ export class CreateCouncilFactory {
 
     const businessCouncilRepo = new CouncilRepositoryMongoDb();
 
+    const typeRepo = new TypeRepositoryMongoDb();
+
     const usecase = new CreateCouncilUseCase(
       validatorUseCase,
       userRepo,
-      businessCouncilRepo
+      businessCouncilRepo,
+      typeRepo
     );
 
     return new CreateCouncilController(validatorRequest, usecase);

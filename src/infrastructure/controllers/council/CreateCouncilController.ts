@@ -1,10 +1,10 @@
-import { CreateCouncilUseCase } from "../../../../application/usecase/council/business/CreateCouncilUseCase";
-import { Council } from "../../../../domain/entities/Council";
-import { Validator } from "../../../../domain/validator/validator";
-import { created } from "../../../http/presentation/controllers/helpers/HttpHelper";
-import { HttpResponse } from "../../../http/presentation/controllers/helpers/Http";
-import { serverError } from "../../../http/presentation/controllers/helpers/HttpHelper";
-import { BaseController } from "../../BaseController";
+import { CreateCouncilUseCase } from "../../../application/usecase/council/business/CreateCouncilUseCase";
+import { Council } from "../../../domain/entities/Council";
+import { Validator } from "../../../domain/validator/validator";
+import { created } from "../../http/presentation/controllers/helpers/HttpHelper";
+import { HttpResponse } from "../../http/presentation/controllers/helpers/Http";
+import { serverError } from "../../http/presentation/controllers/helpers/HttpHelper";
+import { BaseController } from "../BaseController";
 
 export type CreateCouncilRequest = {
   userId: string;

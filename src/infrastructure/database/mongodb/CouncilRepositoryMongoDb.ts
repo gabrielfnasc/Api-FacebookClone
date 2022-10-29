@@ -1,8 +1,8 @@
 import { CouncilRepository } from "../../../application/repositories/CouncilRepository";
 import { InputCreateCouncilDto } from "../../../application/usecase/council/business/CreateCouncilUseCase";
 import { Council } from "../../../domain/entities/Council";
-import { BaseMongoRepository } from "./BaseMongoRepository";
-import { MongoHelper } from "./MongoHelper";
+import { BaseMongoRepository } from "../mongodb/BaseMongoRepository";
+import { MongoHelper } from "../mongodb/MongoHelper";
 
 export class CouncilRepositoryMongoDb
   extends BaseMongoRepository
