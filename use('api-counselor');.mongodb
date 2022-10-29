@@ -1,21 +1,24 @@
 use('api-counselor');
+db.types.findOne({name: "Life"})
 
-db.business.aggregate([
-  {
-    $lookup: {
-      from: 'business',
-      localField: 'userId',
-      foreignField: 'userId',
-      as: 'originals2'
-    }
-  },
-  {
-    $merge: {
-      into: 'councils', // collection-name
-    // the identifier, used to identify the document to merge into
-    }
-  }
-])
+//  db.types.insertOne({name : "Life 2"})
+
+// db.business.aggregate([
+//   {
+//     $lookup: {
+//       from: 'business',
+//       localField: 'userId',
+//       foreignField: 'userId',
+//       as: 'originals2'
+//     }
+//   },
+//   {
+//     $merge: {
+//       into: 'councils', // collection-name
+//     // the identifier, used to identify the document to merge into
+//     }
+//   }
+// ])
 // db.councils.aggregate([{
 // $lookup: {
 // from: 'business',
