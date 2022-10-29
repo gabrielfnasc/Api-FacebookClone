@@ -1,6 +1,7 @@
 import { TypeRepository } from "../../../application/repositories/TypeRepository";
 import { Type } from "../../../domain/entities/Type";
 import { BaseMongoRepository } from "./BaseMongoRepository";
+import { MongoHelper } from "./MongoHelper";
 
 export class TypeRepositoryMongoDb
   extends BaseMongoRepository
@@ -11,6 +12,6 @@ export class TypeRepositoryMongoDb
   }
   async find(name: string): Promise<Type> {
     const typeDocument = await this.getCollection.findOne({ name });
-    return typeDocument && typeDocument.map(typeDocument);
+    return typeDocument && MongoHelper.map(typeDocument);
   }
 }
