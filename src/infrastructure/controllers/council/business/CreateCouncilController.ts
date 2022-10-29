@@ -1,4 +1,4 @@
-import { CreateBusinessCouncilUseCase } from "../../../../application/usecase/council/business/CreateBusinessCouncilUseCase";
+import { CreateCouncilUseCase } from "../../../../application/usecase/council/business/CreateCouncilUseCase";
 import { Council } from "../../../../domain/entities/Council";
 import { Validator } from "../../../../domain/validator/validator";
 import { created } from "../../../http/presentation/controllers/helpers/HttpHelper";
@@ -6,18 +6,18 @@ import { HttpResponse } from "../../../http/presentation/controllers/helpers/Htt
 import { serverError } from "../../../http/presentation/controllers/helpers/HttpHelper";
 import { BaseController } from "../../BaseController";
 
-export type CreateBusinessCouncilRequest = {
+export type CreateCouncilRequest = {
   userId: string;
   council: Council;
 };
 
-export class CreateBusinessCouncilController implements BaseController {
+export class CreateCouncilController implements BaseController {
   constructor(
     private readonly validator: Validator,
-    private readonly usecase: CreateBusinessCouncilUseCase
+    private readonly usecase: CreateCouncilUseCase
   ) {}
 
-  async handle(request: CreateBusinessCouncilRequest): Promise<HttpResponse> {
+  async handle(request: CreateCouncilRequest): Promise<HttpResponse> {
     try {
       this.validator.validate(request);
       const { userId, council } = request;

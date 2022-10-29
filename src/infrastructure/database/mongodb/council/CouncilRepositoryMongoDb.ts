@@ -1,17 +1,17 @@
-import { BusinessCouncilRepository } from "../../../../application/repositories/council/BusinessCouncilRepository";
-import { InputCreateBusinessCouncilDto } from "../../../../application/usecase/council/business/CreateBusinessCouncilUseCase";
+import { CouncilRepository } from "../../../../application/repositories/council/CouncilRepository";
+import { InputCreateCouncilDto } from "../../../../application/usecase/council/business/CreateCouncilUseCase";
 import { Council } from "../../../../domain/entities/Council";
 import { BaseMongoRepository } from "../BaseMongoRepository";
 import { MongoHelper } from "../MongoHelper";
 
-export class BusinessCouncilRepositoryMongoDb
+export class CouncilRepositoryMongoDb
   extends BaseMongoRepository
-  implements BusinessCouncilRepository
+  implements CouncilRepository
 {
   collection(): string {
-    return "business";
+    return "councils";
   }
-  async create(dto: InputCreateBusinessCouncilDto): Promise<void> {
+  async create(dto: InputCreateCouncilDto): Promise<void> {
     const { userId, council, createdAt } = dto;
     const filter = { userId };
     await this.getCollection.updateOne(

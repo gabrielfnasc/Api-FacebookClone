@@ -1,13 +1,13 @@
-import { CreateBusinessCouncilUseCase } from "../../../application/usecase/council/business/CreateBusinessCouncilUseCase";
+import { CreateCouncilUseCase } from "../../../application/usecase/council/business/CreateCouncilUseCase";
 import { ValidatorComposite } from "../../../application/validator/ValidatorComposite";
 import { ValidatorRequiredParam } from "../../../application/validator/ValidatorRequiredParam";
 import { ValidatorRequiredParamObject } from "../../../application/validator/ValidatorRequiredParamObject";
 import { BaseController } from "../../controllers/BaseController";
-import { CreateBusinessCouncilController } from "../../controllers/council/business/CreateBusinessCouncilController";
-import { BusinessCouncilRepositoryMongoDb } from "../../database/mongodb/council/BusinessCouncilRepositoryMongoDb";
+import { CreateCouncilController } from "../../controllers/council/business/CreateCouncilController";
+import { CouncilRepositoryMongoDb } from "../../database/mongodb/council/CouncilRepositoryMongoDb";
 import { UserRepositoryMongoDB } from "../../database/mongodb/UserRepositoryMongoDb";
 
-export class CreateBusinessCouncilFactory {
+export class CreateCouncilFactory {
   static build(): BaseController {
     const validatorRequest = new ValidatorComposite([
       new ValidatorRequiredParam("userId"),
@@ -19,14 +19,14 @@ export class CreateBusinessCouncilFactory {
     ]);
     const userRepo = new UserRepositoryMongoDB();
 
-    const businessCouncilRepo = new BusinessCouncilRepositoryMongoDb();
+    const businessCouncilRepo = new CouncilRepositoryMongoDb();
 
-    const usecase = new CreateBusinessCouncilUseCase(
+    const usecase = new CreateCouncilUseCase(
       validatorUseCase,
       userRepo,
       businessCouncilRepo
     );
 
-    return new CreateBusinessCouncilController(validatorRequest, usecase);
+    return new CreateCouncilController(validatorRequest, usecase);
   }
 }
