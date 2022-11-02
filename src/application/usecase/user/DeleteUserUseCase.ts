@@ -8,6 +8,6 @@ export type InputDeleteUserDto = {
 export class DeleteUserUseCase implements Usecase<InputDeleteUserDto, void> {
   constructor(private readonly repository: UserRepository) {}
   async execute(data: InputDeleteUserDto): Promise<void> {
-    await this.repository;
+    await this.repository.delete(data);
   }
 }
