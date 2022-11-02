@@ -1,5 +1,9 @@
+import { DeleteUserUseCase } from "../../../application/usecase/user/DeleteUserUseCase";
 import { HttpResponse } from "../../http/presentation/controllers/helpers/Http";
-import { serverError } from '../../http/presentation/controllers/helpers/HttpHelper';
+import {
+  ok,
+  serverError,
+} from "../../http/presentation/controllers/helpers/HttpHelper";
 import { BaseController } from "../BaseController";
 
 export type DeleteUserRequest = {
@@ -7,12 +11,13 @@ export type DeleteUserRequest = {
 };
 
 export class DeleteUserController implements BaseController {
-  constructor(private readonly usecase: ) {}
+  constructor(private readonly usecase: DeleteUserUseCase) {}
   async handle(request: DeleteUserRequest): Promise<HttpResponse> {
     try {
-        await this.repository
+      await this.usecase.execute(request);
+      return ok({ message: "User successfully deleted!" });
     } catch (error) {
-        return serverError(error as Error)
+      return serverError(error as Error);
     }
   }
 }
