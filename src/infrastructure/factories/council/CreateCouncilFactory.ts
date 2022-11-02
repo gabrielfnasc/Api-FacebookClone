@@ -1,4 +1,4 @@
-import { CreateCouncilUseCase } from "../../../application/usecase/council/business/CreateCouncilUseCase";
+import { CreateCouncilUseCase } from "../../../application/usecase/council/CreateCouncilUseCase";
 import { ValidatorComposite } from "../../../application/validator/ValidatorComposite";
 import { ValidatorRequiredParam } from "../../../application/validator/ValidatorRequiredParam";
 import { ValidatorRequiredParamObject } from "../../../application/validator/ValidatorRequiredParamObject";

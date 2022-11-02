@@ -7,8 +7,10 @@ export type FindCouncilByContentRequest = {
 };
 
 export class FindCouncilByContentController implements BaseController {
+    constructor(private readonly usecase : ){}
   async handle(request: FindCouncilByContentRequest): Promise<HttpResponse> {
     try {
+        await this.usecase.
     } catch (error) {
       return serverError(error as Error);
     }

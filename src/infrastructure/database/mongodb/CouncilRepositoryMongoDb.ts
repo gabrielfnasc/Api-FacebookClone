@@ -1,5 +1,5 @@
 import { CouncilRepository } from "../../../application/repositories/CouncilRepository";
-import { InputCreateCouncilDto } from "../../../application/usecase/council/business/CreateCouncilUseCase";
+import { InputCreateCouncilDto } from "../../../application/usecase/council/CreateCouncilUseCase";
 import { Council } from "../../../domain/entities/Council";
 import { BaseMongoRepository } from "../mongodb/BaseMongoRepository";
 import { MongoHelper } from "../mongodb/MongoHelper";

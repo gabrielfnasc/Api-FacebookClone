@@ -1,5 +1,5 @@
 import { Council } from "../../domain/entities/Council";
-import { InputCreateCouncilDto } from "../usecase/council/business/CreateCouncilUseCase";
+import { InputCreateCouncilDto } from "../usecase/council/CreateCouncilUseCase";
 
 export interface CouncilRepository {
   create(data: InputCreateCouncilDto): Promise<void>;

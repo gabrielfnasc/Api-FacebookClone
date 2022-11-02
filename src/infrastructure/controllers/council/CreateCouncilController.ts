@@ -1,4 +1,4 @@
-import { CreateCouncilUseCase } from "../../../application/usecase/council/business/CreateCouncilUseCase";
+import { CreateCouncilUseCase } from "../../../application/usecase/council/CreateCouncilUseCase";
 import { Council } from "../../../domain/entities/Council";
 import { Validator } from "../../../domain/validator/validator";
 import { created } from "../../http/presentation/controllers/helpers/HttpHelper";
