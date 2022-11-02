@@ -7,7 +7,7 @@ export type InputFindCouncilByContentDto = {
 };
 
 export type OutputFindCouncilByContentDto = {
-  councils: Council[];
+  council: Council;
 };
 
 export class FindCouncilByContentUseCase
@@ -18,7 +18,8 @@ export class FindCouncilByContentUseCase
   async execute(
     data: InputFindCouncilByContentDto
   ): Promise<OutputFindCouncilByContentDto> {
+    const council = await this.repo.find(data.content);
 
-    await this.repo.
+    return { council };
   }
 }
