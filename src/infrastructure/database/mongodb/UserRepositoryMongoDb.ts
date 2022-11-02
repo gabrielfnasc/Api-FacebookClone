@@ -4,11 +4,15 @@ import { InputCreateUserDto } from "../../../application/usecase/user/CreateUser
 import { MongoHelper } from "./MongoHelper";
 import { User } from "../../../domain/entities/User";
 import { ObjectId } from "mongodb";
+import { InputDeleteUserDto } from "../../../application/usecase/user/DeleteUserUseCase";
 
 export class UserRepositoryMongoDB
   extends BaseMongoRepository
   implements UserRepository
 {
+  async delete(userId: InputDeleteUserDto): Promise<void> {
+    await this.getCollection.deleteOne({ _id: userId });
+  }
   collection(): string {
     return "users";
   }
