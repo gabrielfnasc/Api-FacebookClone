@@ -6,6 +6,7 @@ import { CouncilRepository } from "../../repositories/CouncilRepository";
 import { UserRepository } from "../../repositories/UserRepository";
 import { Usecase } from "../UseCase";
 import { TypeRepository } from "../../repositories/TypeRepository";
+import { AlreadyExistError } from "../../../domain/erros/AlreadyExistsError";
 
 export type InputCreateCouncilDto = {
   userId: string;
@@ -42,11 +43,11 @@ export class CreateCouncilUseCase
     }
 
     //TODO
-    // //check if the user don´t repeat the same content
-    // const council = await this.businessCouncilRepo.find(data.council.content);
-    // // if (council) {
-    // //   throw new AlreadyExistError("Content");
-    // // }
+    //check if the user don´t repeat the same content
+    const council = await this.businessCouncilRepo.find(data.council.content);
+    if (council) {
+      throw new AlreadyExistError("Content");
+    }
     await this.businessCouncilRepo.create(data);
   }
 }

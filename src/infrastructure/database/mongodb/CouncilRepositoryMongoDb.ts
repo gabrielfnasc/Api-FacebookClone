@@ -21,26 +21,9 @@ export class CouncilRepositoryMongoDb
     );
   }
   async find(content: string): Promise<Council> {
-    const council = await this.getCollection
-      .aggregate([
-        {
-          $match: {
-            councils: { $elemMatch: { content: content } },
-          },
-        },
-        {
-          $redact: {
-            $cond: {
-              if: {
-                $or: [{ $eq: ["$content", content] }, { $not: "$content" }],
-              },
-              then: "$$DESCEND",
-              else: "$$PRUNE",
-            },
-          },
-        },
-      ])
-      .toArray();
+    const council = await this.getCollection.findOne({
+      "councils.content": content,
+    });
 
     return council && MongoHelper.map(council);
   }
