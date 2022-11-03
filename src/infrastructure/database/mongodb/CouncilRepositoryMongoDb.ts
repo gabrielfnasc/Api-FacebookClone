@@ -21,9 +21,11 @@ export class CouncilRepositoryMongoDb
     );
   }
   async find(content: string): Promise<Council> {
-    const council = await this.getCollection.findOne({
-      "councils.content": content,
-    });
+    const council = await this.getCollection
+      .find({
+        "councils.content": new RegExp(content),
+      })
+      .toArray();
 
     return council && MongoHelper.map(council);
   }

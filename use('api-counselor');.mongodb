@@ -1,6 +1,6 @@
 use('api-counselor');
-db.councils.findOne({"councils.content" : new RegExp("nao usem drogas")},{_id: 0, councils: {$elemMatch: {content: "nao usem drogas"}}})
-
+db.councils.find({"councils.content" : new RegExp("não usem drogas")},{ councils: {$elemMatch: {content: "nao usem drogas"},}, })
+z
      
   // db.users.deleteOne({ _id: ObjectId("635d404c417d188d4c72aef5") });
 // db.types.findOne({name: "Life"})
