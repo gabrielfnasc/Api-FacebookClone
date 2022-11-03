@@ -7,10 +7,12 @@ import { UserRepository } from "../../repositories/UserRepository";
 import { Usecase } from "../UseCase";
 import { TypeRepository } from "../../repositories/TypeRepository";
 import { AlreadyExistError } from "../../../domain/erros/AlreadyExistsError";
+import { ObjectId } from "mongodb";
 
 export type InputCreateCouncilDto = {
   userId: string;
   council: Council;
+
   createdAt: Date;
 };
 
@@ -26,6 +28,7 @@ export class CreateCouncilUseCase
   ) {}
   async execute(data: InputCreateCouncilDto): Promise<void> {
     this.validator.validate(data);
+    data.council.councilId = new ObjectId();
 
     //check if user exists
     const user = await this.userRepo.findById(data.userId);
@@ -48,6 +51,8 @@ export class CreateCouncilUseCase
     if (council) {
       throw new AlreadyExistError("Content");
     }
-    await this.businessCouncilRepo.create(data);
+    await this.businessCouncilRepo.create({
+      ...data,
+    });
   }
 }
