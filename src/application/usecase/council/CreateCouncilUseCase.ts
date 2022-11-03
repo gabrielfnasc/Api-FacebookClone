@@ -28,7 +28,7 @@ export class CreateCouncilUseCase
   ) {}
   async execute(data: InputCreateCouncilDto): Promise<void> {
     this.validator.validate(data);
-    data.council.councilId = new ObjectId();
+    data.council.id = new ObjectId();
 
     //check if user exists
     const user = await this.userRepo.findById(data.userId);
