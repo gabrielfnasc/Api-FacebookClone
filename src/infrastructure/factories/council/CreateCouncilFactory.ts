@@ -13,11 +13,9 @@ export class CreateCouncilFactory {
     const validatorRequest = new ValidatorComposite([
       new ValidatorRequiredParam("type"),
       new ValidatorRequiredParam("content"),
+      new ValidatorRequiredParamObject("type", "name"),
     ]);
 
-    const validatorUseCase = new ValidatorComposite([
-      new ValidatorRequiredParamObject("name", "type"),
-    ]);
     const userRepo = new UserRepositoryMongoDB();
 
     const businessCouncilRepo = new CouncilRepositoryMongoDb();
@@ -25,7 +23,6 @@ export class CreateCouncilFactory {
     const typeRepo = new TypeRepositoryMongoDb();
 
     const usecase = new CreateCouncilUseCase(
-      validatorUseCase,
       userRepo,
       businessCouncilRepo,
       typeRepo

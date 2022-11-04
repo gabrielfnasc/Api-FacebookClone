@@ -1,6 +1,5 @@
 import { Council } from "../../../domain/entities/Council";
 import { RequiredMinLengthDomainError } from "../../../domain/erros/RequiredMinLengthDomainError";
-import { Validator } from "../../../domain/validator/validator";
 import { NotFoundHttpError } from "../../../infrastructure/http/errors";
 import { CouncilRepository } from "../../repositories/CouncilRepository";
 import { UserRepository } from "../../repositories/UserRepository";
@@ -17,15 +16,12 @@ export class CreateCouncilUseCase
   implements Usecase<InputCreateCouncilDto, void>
 {
   constructor(
-    private readonly validator: Validator,
     private readonly userRepo: UserRepository,
     private readonly businessCouncilRepo: CouncilRepository,
 
     private readonly type: TypeRepository
   ) {}
   async execute(data: InputCreateCouncilDto): Promise<void> {
-    this.validator.validate(data.council);
-
     //check if user exists
     const user = await this.userRepo.findById(data.userId);
     if (!user) {
