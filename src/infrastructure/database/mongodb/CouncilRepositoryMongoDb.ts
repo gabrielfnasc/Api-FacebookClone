@@ -27,4 +27,11 @@ export class CouncilRepositoryMongoDb
 
     return council && MongoHelper.map(council);
   }
+  async findOneCouncil(content: string): Promise<Council> {
+    const council = await this.getCollection.findOne({
+      "councils.content": new RegExp("^" + content + "$", "i"),
+    });
+
+    return council && MongoHelper.map(council);
+  }
 }

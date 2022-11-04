@@ -5,4 +5,6 @@ export interface CouncilRepository {
   create(data: InputCreateCouncilDto): Promise<void>;
 
   find(content: string): Promise<Council>;
+
+  findOneCouncil(content: string): Promise<Council>;
 }
