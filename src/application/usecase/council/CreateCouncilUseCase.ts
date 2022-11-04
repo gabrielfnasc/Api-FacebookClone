@@ -32,12 +32,13 @@ export class CreateCouncilUseCase
     if (data.council.content.length < minLenght) {
       throw new RequiredMinLengthDomainError("content", minLenght);
     }
+
+    //check if type is valid
     const typeName = await this.type.find(data.council.type.name);
     if (!typeName) {
       throw new NotFoundHttpError("Sorry! we don't have this council type yet");
     }
 
-    //TODO
     //check if the user don´t repeat the same content
     const council = await this.businessCouncilRepo.find(data.council.content);
     if (council) {

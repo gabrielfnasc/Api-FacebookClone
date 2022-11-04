@@ -24,8 +24,8 @@ export class CreateCouncilController implements BaseController {
       this.validator.validate(request);
       const { userId, content, type } = request;
       const council: Council = {
-        id: uuid(),
         content: content,
+        id: uuid(),
         createdAt: new Date(),
         type: type,
       };
