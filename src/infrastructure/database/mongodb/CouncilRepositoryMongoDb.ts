@@ -22,7 +22,7 @@ export class CouncilRepositoryMongoDb
   }
   async find(content: string): Promise<Council> {
     const council = await this.getCollection.findOne({
-      "councils.content": new RegExp(content),
+      "councils.content": new RegExp("^" + content, "i"),
     });
 
     return council && MongoHelper.map(council);
