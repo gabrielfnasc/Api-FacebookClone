@@ -1,4 +1,3 @@
-/* eslint-disable no-prototype-builtins */
 import { Validator } from "../../domain/validator/validator";
 import { RequiredParamHttpError } from "../../infrastructure/http/errors";
 

@@ -1,14 +1,16 @@
 import { CreateCouncilUseCase } from "../../../application/usecase/council/CreateCouncilUseCase";
-import { Council } from "../../../domain/entities/Council";
 import { Validator } from "../../../domain/validator/validator";
 import { created } from "../../http/presentation/controllers/helpers/HttpHelper";
 import { HttpResponse } from "../../http/presentation/controllers/helpers/Http";
 import { serverError } from "../../http/presentation/controllers/helpers/HttpHelper";
 import { BaseController } from "../BaseController";
-
+import { Type } from "../../../domain/entities/Type";
+import { Council } from "../../../domain/entities/Council";
+import { v4 as uuid } from "uuid";
 export type CreateCouncilRequest = {
   userId: string;
-  council: Council;
+  type: Type;
+  content: string;
 };
 
 export class CreateCouncilController implements BaseController {
@@ -20,11 +22,16 @@ export class CreateCouncilController implements BaseController {
   async handle(request: CreateCouncilRequest): Promise<HttpResponse> {
     try {
       this.validator.validate(request);
-      const { userId, council } = request;
+      const { userId, content, type } = request;
+      const council: Council = {
+        id: uuid(),
+        content: content,
+        createdAt: new Date(),
+        type: type,
+      };
       await this.usecase.execute({
         userId,
         council,
-        createdAt: new Date(),
       });
       return created({ message: "Council created successfully!" });
     } catch (error) {

@@ -11,13 +11,12 @@ import { UserRepositoryMongoDB } from "../../database/mongodb/UserRepositoryMong
 export class CreateCouncilFactory {
   static build(): BaseController {
     const validatorRequest = new ValidatorComposite([
-      new ValidatorRequiredParam("userId"),
-      new ValidatorRequiredParam("council"),
+      new ValidatorRequiredParam("type"),
+      new ValidatorRequiredParam("content"),
     ]);
 
     const validatorUseCase = new ValidatorComposite([
-      new ValidatorRequiredParamObject("council", "content"),
-      new ValidatorRequiredParamObject("council", "type"),
+      new ValidatorRequiredParamObject("name", "type"),
     ]);
     const userRepo = new UserRepositoryMongoDB();
 

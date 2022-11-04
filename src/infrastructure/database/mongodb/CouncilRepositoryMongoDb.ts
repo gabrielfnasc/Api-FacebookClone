@@ -12,11 +12,11 @@ export class CouncilRepositoryMongoDb
     return "councils";
   }
   async create(dto: InputCreateCouncilDto): Promise<void> {
-    const { userId, council, createdAt } = dto;
+    const { userId, council } = dto;
     const filter = { userId };
     await this.getCollection.updateOne(
       filter,
-      { $set: { createdAt }, $addToSet: { councils: council } },
+      { $addToSet: { councils: council } },
       { upsert: true }
     );
   }
