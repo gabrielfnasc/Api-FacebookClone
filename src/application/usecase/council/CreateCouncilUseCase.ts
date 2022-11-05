@@ -25,7 +25,7 @@ export class CreateCouncilUseCase
     //check if user exists
     const user = await this.userRepo.findById(data.userId);
     if (!user) {
-      throw new NotFoundHttpError("Nenhum usuário encontrado!");
+      throw new NotFoundHttpError("User not found!");
     }
     // check the length of the council content
     const minLenght: number = 10;
