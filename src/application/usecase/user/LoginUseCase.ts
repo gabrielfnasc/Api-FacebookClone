@@ -6,6 +6,7 @@ import {
 import { Hash } from "../../cryptography";
 import { UserRepository } from "../../repositories/UserRepository";
 import { Usecase } from "../UseCase";
+import { Cryptography } from "../../cryptography/Cryptography";
 
 export type InputLoginDto = {
   email: string;
@@ -20,7 +21,8 @@ export class LoginUseCase implements Usecase<InputLoginDto, OutputLoginDto> {
   constructor(
     private readonly validator: Validator,
     private readonly repository: UserRepository,
-    private readonly hash: Hash
+    private readonly hash: Hash,
+    private readonly jwt: Cryptography
   ) {}
   async execute(data: InputLoginDto): Promise<OutputLoginDto> {
     this.validator.validate(data);
@@ -34,5 +36,7 @@ export class LoginUseCase implements Usecase<InputLoginDto, OutputLoginDto> {
     if (!isValid) {
       throw new UnauthorizedHttpError();
     }
+    const accessToken = await this.jwt.encrypt(user.id);
+    return { accessToken };
   }
 }
