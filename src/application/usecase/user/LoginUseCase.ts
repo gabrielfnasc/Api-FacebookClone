@@ -32,7 +32,7 @@ export class LoginUseCase implements Usecase<InputLoginDto, OutputLoginDto> {
       throw new NotFoundHttpError("User not found!");
     }
 
-    const isValid = await this.hash.comparer(data.email, user.email);
+    const isValid = await this.hash.comparer(data.password, user.password);
     if (!isValid) {
       throw new UnauthorizedHttpError();
     }

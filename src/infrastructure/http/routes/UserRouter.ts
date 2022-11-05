@@ -10,5 +10,5 @@ export default (router: Router): void => {
     "/user/:userId",
     ExpressRouterAdapter(DeleteUserFactory.build())
   );
-  router.get("/login", ExpressRouterAdapter(LoginFactory.build()));
+  router.post("/login", ExpressRouterAdapter(LoginFactory.build()));
 };
