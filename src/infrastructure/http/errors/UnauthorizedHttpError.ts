@@ -3,7 +3,7 @@ import { HttpStatusCode } from "../presentation/controllers/helpers/HttpStatusCo
 
 export class UnauthorizedHttpError extends ApiError {
   constructor() {
-    super("Acesso negado.", HttpStatusCode.UNAUTHORIZED);
+    super("Acesso denied.", HttpStatusCode.UNAUTHORIZED);
     this.name = "UnauthorizedHttpError";
     Object.setPrototypeOf(this, UnauthorizedHttpError.prototype);
   }
