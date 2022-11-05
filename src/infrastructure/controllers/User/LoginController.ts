@@ -14,8 +14,8 @@ export type LoginControllerRequestDto = {
 
 export class LoginController implements BaseController {
   constructor(
-    private readonly validator: Validator,
-    private readonly usecase: LoginUseCase
+    private readonly usecase: LoginUseCase,
+    private readonly validator: Validator
   ) {}
   async handle(request: LoginControllerRequestDto): Promise<HttpResponse> {
     try {
