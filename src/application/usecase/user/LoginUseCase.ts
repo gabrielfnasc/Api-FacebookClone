@@ -27,7 +27,7 @@ export class LoginUseCase implements Usecase<InputLoginDto, OutputLoginDto> {
   async execute(data: InputLoginDto): Promise<OutputLoginDto> {
     this.validator.validate(data);
 
-    const user = await this.repository.findByEmail(data.email);
+    const user = await this.repository.login(data.email);
     if (!user) {
       throw new NotFoundHttpError("User not found!");
     }
