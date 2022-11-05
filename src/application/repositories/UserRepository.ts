@@ -1,6 +1,5 @@
 import { User } from "../../domain/entities/User";
 import { InputCreateUserDto } from "../usecase/user/CreateUserUseCase";
-import { InputLoginDto } from "../usecase/user/LoginUseCase";
 
 export interface UserRepository {
   create(data: InputCreateUserDto): Promise<string>;
@@ -9,5 +8,5 @@ export interface UserRepository {
 
   delete(userId: string): Promise<void>;
 
-  login(data: InputLoginDto): Promise<User>;
+  login(email: string): Promise<User>;
 }

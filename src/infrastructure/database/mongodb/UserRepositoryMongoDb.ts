@@ -9,15 +9,17 @@ export class UserRepositoryMongoDB
   extends BaseMongoRepository
   implements UserRepository
 {
-  async delete(userId: string): Promise<void> {
-    await this.getCollection.deleteOne({ _id: new ObjectId(userId) });
-  }
   collection(): string {
     return "users";
   }
   async create(data: InputCreateUserDto): Promise<string> {
     const document = await this.getCollection.insertOne(data);
     return document.insertedId.toString();
+  }
+  async login(email: string): Promise<User> {
+    const user = await this.getCollection.findOne({ email });
+
+    return user && MongoHelper.map(user);
   }
   async findByEmail(email: string): Promise<User> {
     const query = { email };
@@ -33,5 +35,8 @@ export class UserRepositoryMongoDB
       projection,
     });
     return userDocument && MongoHelper.map(userDocument);
+  }
+  async delete(userId: string): Promise<void> {
+    await this.getCollection.deleteOne({ _id: new ObjectId(userId) });
   }
 }

@@ -1,9 +1,9 @@
 use('api-counselor');
 
 
+db.users.findOne({ email : "theozinhocachorro2@gmail.com.br"});
 
-
-  db.councils.findOne({"councils.content" : new RegExp( '^' + "Batatinha quando nasce se esparrama pelo chão"+ '$','i')})   
+  // db.councils.findOne({"councils.content" : new RegExp( '^' + "Batatinha quando nasce se esparrama pelo chão"+ '$','i')})   
   // db.users.deleteOne({ _id: ObjectId("635d404c417d188d4c72aef5") });
 // db.types.findOne({name: "Life"})
 
