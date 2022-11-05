@@ -2,6 +2,7 @@ import { Router } from "express";
 import { ExpressRouterAdapter } from "../../http/adapters/ExpressRouterAdapter";
 import { CreateUserFactory } from "../../factories/user/CreateUserFactory";
 import { DeleteUserFactory } from "../../factories/user/DeleteUserFactory";
+import { LoginFactory } from "../../factories/user/LoginFactory";
 
 export default (router: Router): void => {
   router.post("/user", ExpressRouterAdapter(CreateUserFactory.build()));
@@ -9,4 +10,5 @@ export default (router: Router): void => {
     "/user/:userId",
     ExpressRouterAdapter(DeleteUserFactory.build())
   );
+  router.get("/login", ExpressRouterAdapter(LoginFactory.build()));
 };
