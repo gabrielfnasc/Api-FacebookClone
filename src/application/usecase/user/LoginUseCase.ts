@@ -27,16 +27,19 @@ export class LoginUseCase implements Usecase<InputLoginDto, OutputLoginDto> {
   async execute(data: InputLoginDto): Promise<OutputLoginDto> {
     this.validator.validate(data);
 
-    const user = await this.repository.login(data.email);
-    if (!user) {
+    const dataBaseUser = await this.repository.login(data.email);
+    if (!dataBaseUser) {
       throw new NotFoundHttpError("User not found!");
     }
 
-    const isValid = await this.hash.comparer(data.password, user.password);
+    const isValid = await this.hash.comparer(
+      data.password,
+      dataBaseUser.password
+    );
     if (!isValid) {
       throw new UnauthorizedHttpError();
     }
-    const accessToken = await this.jwt.encrypt(user.id);
+    const accessToken = await this.jwt.encrypt(dataBaseUser.id);
     return { accessToken };
   }
 }
