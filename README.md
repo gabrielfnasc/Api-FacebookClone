@@ -175,7 +175,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 Gabriel Ferreira  - ferreiranbiel@gmail.com
 
-Project Link: [https://github.com/your_username/repo_name](https://github.com/gabrielfnasc/api-counselor.git)
+Project Link:(https://github.com/gabrielfnasc/api-counselor.git)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
