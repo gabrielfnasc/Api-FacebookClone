@@ -10,9 +10,6 @@ export class CouncilRepositoryMongoDb
   extends BaseMongoRepository
   implements CouncilRepository
 {
-  findOneCouncilByContent(content: string): Promise<Council> {
-    throw new Error("Method not implemented.");
-  }
   update(data: InputUpdateCouncilDto): Promise<void> {
     throw new Error("Method not implemented.");
   }
@@ -35,7 +32,7 @@ export class CouncilRepositoryMongoDb
 
     return council && MongoHelper.map(council);
   }
-  async findOneCouncil(content: string): Promise<Council> {
+  async findOneCouncilByContent(content: string): Promise<Council> {
     const council = await this.getCollection.findOne({
       "councils.content": new RegExp("^" + content + "$", "i"),
     });
