@@ -18,7 +18,7 @@ export class DeleteUserController implements BaseController {
   ) {}
   async handle(request: DeleteUserRequest): Promise<HttpResponse> {
     try {
-      await this.validator.validate(request);
+      this.validator.validate(request);
       await this.usecase.execute(request);
       return ok({ message: "User successfully deleted!" });
     } catch (error) {
