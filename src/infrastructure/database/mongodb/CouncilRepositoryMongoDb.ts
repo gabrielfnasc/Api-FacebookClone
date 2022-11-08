@@ -25,6 +25,21 @@ export class CouncilRepositoryMongoDb
       { upsert: true }
     );
   }
+  async updateContent(data: InputUpdateCouncilDto): Promise<void> {
+    const { userId, councilId, content } = data;
+    await this.getCollection.updateOne(
+      {
+        userId: userId,
+        "councils.id": councilId,
+      },
+      {
+        $set: {
+          "councils.$.content": content,
+        },
+      }
+    );
+  }
+
   async findCouncilsByContent(content: string): Promise<Council> {
     const council = await this.getCollection.findOne({
       "councils.content": new RegExp("^" + content, "i"),

@@ -6,6 +6,7 @@ import { Usecase } from "../UseCase";
 export type InputUpdateCouncilDto = {
   userId: string;
   councilId: string;
+  content: string;
 };
 
 export class UpdateCouncilUseCase

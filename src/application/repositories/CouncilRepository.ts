@@ -12,5 +12,5 @@ export interface CouncilRepository {
 
   delete(data: InputDeleteCouncilUseCase): Promise<void>;
 
-  update(data: InputUpdateCouncilDto): Promise<void>;
+  updateContent(data: InputUpdateCouncilDto): Promise<void>;
 }

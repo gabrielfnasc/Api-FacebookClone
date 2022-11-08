@@ -6,6 +6,7 @@ import { BaseController } from "../BaseController";
 export type UpdateCouncilRequestDto = {
   userId: string;
   councilId: string;
+content : string;
 };
 
 export class UpdateCouncilController implements BaseController {
