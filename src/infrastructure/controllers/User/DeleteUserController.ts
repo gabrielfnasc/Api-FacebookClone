@@ -12,13 +12,9 @@ export type DeleteUserRequest = {
 };
 
 export class DeleteUserController implements BaseController {
-  constructor(
-    private readonly usecase: DeleteUserUseCase,
-    private readonly validator: Validator
-  ) {}
+  constructor(private readonly usecase: DeleteUserUseCase) {}
   async handle(request: DeleteUserRequest): Promise<HttpResponse> {
     try {
-      this.validator.validate(request);
       await this.usecase.execute(request);
       return ok({ message: "User successfully deleted!" });
     } catch (error) {

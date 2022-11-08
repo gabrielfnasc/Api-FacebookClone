@@ -15,7 +15,7 @@ export default (router: Router): void => {
   );
 
   router.delete(
-    "council/:userId",
+    "/council/:userId",
     ExpressRouterAdapter(DeleteCouncilFactory.build())
   );
 };

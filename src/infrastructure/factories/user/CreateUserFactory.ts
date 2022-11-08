@@ -1,6 +1,6 @@
 import { CreateUserUseCase } from "../../../application/usecase/user/CreateUserUseCase";
 import { BaseController } from "../../controllers/BaseController";
-import { CreateUserController } from "../../controllers/user/CreateUserController";
+import { CreateUserController } from "../../controllers/User/CreateUserController";
 import { UserRepositoryMongoDB } from "../../database/mongodb/UserRepositoryMongoDb";
 import { ValidatorComposite } from "../../../application/validator/ValidatorComposite";
 import { ValidatorRequiredParam } from "../../../application/validator/ValidatorRequiredParam";

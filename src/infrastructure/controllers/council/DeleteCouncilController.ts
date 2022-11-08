@@ -1,4 +1,5 @@
 import { DeleteCouncilUseCase } from "../../../application/usecase/council/DeleteCouncilUseCase";
+import { Validator } from "../../../domain/validator/validator";
 import { HttpResponse } from "../../http/presentation/controllers/helpers/Http";
 import {
   ok,
@@ -12,9 +13,13 @@ export type DeleteCouncilRequestDto = {
 };
 
 export class DeleteCouncilController implements BaseController {
-  constructor(private readonly usecase: DeleteCouncilUseCase) {}
+  constructor(
+    private readonly usecase: DeleteCouncilUseCase,
+    private readonly validator: Validator
+  ) {}
   async handle(request: DeleteCouncilRequestDto): Promise<HttpResponse> {
     try {
+      this.validator.validate(request);
       await this.usecase.execute(request);
       return ok("Council deleted successfully!");
     } catch (error) {

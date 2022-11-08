@@ -10,7 +10,6 @@ export class DeleteCouncilFactory {
   static build(): BaseController {
     const validatorRequest = new ValidatorComposite([
       new ValidatorRequiredParam("councilId"),
-      new ValidatorRequiredParam("userId"),
     ]);
 
     const userRepoMongoDb = new UserRepositoryMongoDB();
@@ -22,6 +21,6 @@ export class DeleteCouncilFactory {
       userRepoMongoDb
     );
 
-    return new DeleteCouncilController(usecase);
+    return new DeleteCouncilController(usecase, validatorRequest);
   }
 }

@@ -1,6 +1,6 @@
 import { DeleteUserUseCase } from "../../../application/usecase/user/DeleteUserUseCase";
 import { BaseController } from "../../controllers/BaseController";
-import { DeleteUserController } from "../../controllers/user/DeleteUserController";
+import { DeleteUserController } from "../../controllers/User/DeleteUserController";
 import { UserRepositoryMongoDB } from "../../database/mongodb/UserRepositoryMongoDb";
 
 export class DeleteUserFactory {

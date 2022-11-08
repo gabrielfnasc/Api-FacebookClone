@@ -5,7 +5,7 @@ import { ValidatorRequiredParam } from "../../../application/validator/Validator
 import { BCryptAdapter } from "../../adapters/BCryptAdapter";
 import { JwtAdapter } from "../../adapters/JwtAdapter";
 import { BaseController } from "../../controllers/BaseController";
-import { LoginController } from "../../controllers/user/LoginController";
+import { LoginController } from "../../controllers/User/LoginController";
 import { UserRepositoryMongoDB } from "../../database/mongodb/UserRepositoryMongoDb";
 import env from "../../http/config/env";
 
