@@ -4,6 +4,7 @@ import { BaseController } from "../BaseController";
 
 export type DeleteCouncilRequestDto = {
   councilId: string;
+  userId: string;
 };
 
 export class DeleteCouncilController implements BaseController {

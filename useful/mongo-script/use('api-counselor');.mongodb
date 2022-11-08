@@ -1,7 +1,7 @@
 use('api-counselor');
 
-
-db.users.findOne({ email : "theozinhocachorro2@gmail.com.br"});
+db.councils.updateOne({userId: "6366dd2da9d052a2bec7a2e5"}, {$pull: {councils: {id: "f44985fc-a065-43e1-9d06-d7a6f234f59e"}}})
+// db.users.findOne({ email : "theozinhocachorro2@gmail.com.br"});
 
   // db.councils.findOne({"councils.content" : new RegExp( '^' + "Batatinha quando nasce se esparrama pelo chão"+ '$','i')})   
   // db.users.deleteOne({ _id: ObjectId("635d404c417d188d4c72aef5") });

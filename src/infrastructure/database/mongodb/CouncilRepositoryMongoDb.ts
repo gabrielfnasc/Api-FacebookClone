@@ -1,5 +1,6 @@
 import { CouncilRepository } from "../../../application/repositories/CouncilRepository";
 import { InputCreateCouncilDto } from "../../../application/usecase/council/CreateCouncilUseCase";
+import { InputDeleteCouncilUseCase } from "../../../application/usecase/council/DeleteCouncilUseCase";
 import { Council } from "../../../domain/entities/Council";
 import { BaseMongoRepository } from "../mongodb/BaseMongoRepository";
 import { MongoHelper } from "../mongodb/MongoHelper";
@@ -33,5 +34,13 @@ export class CouncilRepositoryMongoDb
     });
 
     return council && MongoHelper.map(council);
+  }
+  async delete(data: InputDeleteCouncilUseCase): Promise<void> {
+    const { councilId, userId } = data;
+    const filter = { userId };
+
+    await this.getCollection.updateOne(filter, {
+      $pull: { councils: { id: councilId } },
+    });
   }
 }
