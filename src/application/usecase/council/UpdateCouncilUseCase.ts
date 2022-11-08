@@ -18,8 +18,11 @@ export class UpdateCouncilUseCase
   ) {}
   async execute(data: InputUpdateCouncilDto): Promise<void> {
     const user = await this.userRepo.findById(data.userId);
+
+    // check if the user exists
     if (!user) {
       throw new NotFoundHttpError("User not found!");
     }
+    await this.councilRepository.updateContent(data);
   }
 }

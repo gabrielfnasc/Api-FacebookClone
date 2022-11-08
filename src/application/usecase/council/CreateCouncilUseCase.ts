@@ -40,7 +40,7 @@ export class CreateCouncilUseCase
     }
 
     //check if the user don´t repeat the same content
-    const council = await this.businessCouncilRepo.findOneCouncil(
+    const council = await this.businessCouncilRepo.findOneCouncilByContent(
       data.council.content
     );
     if (council) {
