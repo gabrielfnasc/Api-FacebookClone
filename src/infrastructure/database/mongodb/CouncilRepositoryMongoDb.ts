@@ -1,6 +1,7 @@
 import { CouncilRepository } from "../../../application/repositories/CouncilRepository";
 import { InputCreateCouncilDto } from "../../../application/usecase/council/CreateCouncilUseCase";
 import { InputDeleteCouncilUseCase } from "../../../application/usecase/council/DeleteCouncilUseCase";
+import { InputUpdateCouncilDto } from "../../../application/usecase/council/UpdateCouncilUseCase";
 import { Council } from "../../../domain/entities/Council";
 import { BaseMongoRepository } from "../mongodb/BaseMongoRepository";
 import { MongoHelper } from "../mongodb/MongoHelper";
@@ -9,6 +10,12 @@ export class CouncilRepositoryMongoDb
   extends BaseMongoRepository
   implements CouncilRepository
 {
+  findOneCouncilByContent(content: string): Promise<Council> {
+    throw new Error("Method not implemented.");
+  }
+  update(data: InputUpdateCouncilDto): Promise<void> {
+    throw new Error("Method not implemented.");
+  }
   collection(): string {
     return "councils";
   }
@@ -21,7 +28,7 @@ export class CouncilRepositoryMongoDb
       { upsert: true }
     );
   }
-  async find(content: string): Promise<Council> {
+  async findCouncilsByContent(content: string): Promise<Council> {
     const council = await this.getCollection.findOne({
       "councils.content": new RegExp("^" + content, "i"),
     });
