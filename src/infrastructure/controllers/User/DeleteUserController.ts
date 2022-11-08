@@ -1,4 +1,5 @@
 import { DeleteUserUseCase } from "../../../application/usecase/user/DeleteUserUseCase";
+import { Validator } from "../../../domain/validator/validator";
 import { HttpResponse } from "../../http/presentation/controllers/helpers/Http";
 import {
   ok,
@@ -11,9 +12,13 @@ export type DeleteUserRequest = {
 };
 
 export class DeleteUserController implements BaseController {
-  constructor(private readonly usecase: DeleteUserUseCase) {}
+  constructor(
+    private readonly usecase: DeleteUserUseCase,
+    private readonly validator: Validator
+  ) {}
   async handle(request: DeleteUserRequest): Promise<HttpResponse> {
     try {
+      await this.validator.validate(request);
       await this.usecase.execute(request);
       return ok({ message: "User successfully deleted!" });
     } catch (error) {
