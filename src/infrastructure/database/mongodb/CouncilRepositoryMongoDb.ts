@@ -10,9 +10,6 @@ export class CouncilRepositoryMongoDb
   extends BaseMongoRepository
   implements CouncilRepository
 {
-  update(data: InputUpdateCouncilDto): Promise<void> {
-    throw new Error("Method not implemented.");
-  }
   collection(): string {
     return "councils";
   }
