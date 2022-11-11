@@ -30,11 +30,6 @@ export class CreateCouncilUseCase
     if (!user) {
       throw new NotFoundHttpError("User not found!");
     }
-    // // check the length of the council content
-    // const minLenght: number = 10;
-    // if (data.council.content.length < minLenght) {
-    //   throw new RequiredMinLengthDomainError("content", minLenght);
-    // }
 
     //check if type is valid
     const typeName = await this.type.find(data.council.type.name);

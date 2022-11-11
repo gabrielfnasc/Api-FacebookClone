@@ -1,3 +1,4 @@
+import { RequiredMinLengthDomainError } from "../../domain/erros";
 import { Validator } from "../../domain/validator/validator";
 import { RequiredParamHttpError } from "../../infrastructure/http/errors";
 
@@ -16,6 +17,10 @@ export class ValidatorInputLengthParamObject implements Validator {
     const jsonObject = value[this.propertyName];
     if (!jsonObject.hasOwnProperty(this.paramName)) {
       throw new RequiredParamHttpError(this.paramName);
+    }
+    const paramValue = jsonObject[this.paramName] as string;
+    if (paramValue.length < this.minLen) {
+      throw new RequiredMinLengthDomainError(this.paramName, this.minLen);
     }
   }
 }

@@ -18,7 +18,7 @@ export class CreateCouncilFactory {
       new ValidatorRequiredParamObject("type", "name"),
     ]);
     const validatorUseCase = new ValidatorComposite([
-      new ValidatorInputLengthParamObject("council", "content", 100),
+      new ValidatorInputLengthParamObject("council", "content", 5),
     ]);
 
     const userRepo = new UserRepositoryMongoDB();
