@@ -43,8 +43,15 @@ export class UserRepositoryMongoDB
   async update(data: InputUpdateUserDto): Promise<void> {
     const { userId, name, email } = data;
     await this.getCollection.updateOne(
-      { _id: new ObjectId(userId) },
-      { $set: { name: name, email: email } }
+      {
+        _id: new ObjectId(userId),
+      },
+      {
+        $set: {
+          email: email,
+          name: name,
+        },
+      }
     );
   }
 }

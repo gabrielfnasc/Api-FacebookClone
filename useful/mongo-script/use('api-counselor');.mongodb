@@ -1,10 +1,11 @@
 use('api-counselor');
 
 db.users.updateOne({
-    _id: "636e5a773278c62d33de5d1e"
+    _id: new ObjectId ("636e5a773278c62d33de5d1e")
 }, {
     $set: {
         email: "email"
+        name : "name"
     }
 })
   
