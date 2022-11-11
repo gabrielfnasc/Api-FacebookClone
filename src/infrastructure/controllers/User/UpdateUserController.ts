@@ -1,3 +1,4 @@
+import { UpdateUserUseCase } from "../../../application/usecase/user/UpdateUserUseCase";
 import { Validator } from "../../../domain/validator/validator";
 import { HttpResponse } from "../../http/presentation/controllers/helpers/Http";
 import {
@@ -13,11 +14,15 @@ export type UpdateUserRequestDto = {
 };
 
 export class UpdateUserController implements BaseController {
-  constructor(private readonly validator: Validator) {}
+  constructor(
+    private readonly validator: Validator,
+    private readonly usecase: UpdateUserUseCase
+  ) {}
   async handle(request: UpdateUserRequestDto): Promise<HttpResponse> {
     try {
       this.validator.validate(request);
-      return ok("tet=s");
+      await this.usecase.execute(request);
+      return ok("User updated successfully!");
     } catch (error) {
       return serverError(error as Error);
     }
