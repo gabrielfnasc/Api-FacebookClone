@@ -1,5 +1,9 @@
+import { FindUserByIdUseCase } from "../../../application/usecase/user/FindUserByIdUseCase";
 import { HttpResponse } from "../../http/presentation/controllers/helpers/Http";
-import { serverError } from "../../http/presentation/controllers/helpers/HttpHelper";
+import {
+  ok,
+  serverError,
+} from "../../http/presentation/controllers/helpers/HttpHelper";
 import { BaseController } from "../BaseController";
 
 export type FindUserByIdControllerRequestDto = {
@@ -7,8 +11,13 @@ export type FindUserByIdControllerRequestDto = {
 };
 
 export class FindUserByIdController implements BaseController {
-  async handle(request: any): Promise<HttpResponse> {
+  constructor(private readonly usecase: FindUserByIdUseCase) {}
+  async handle(
+    request: FindUserByIdControllerRequestDto
+  ): Promise<HttpResponse> {
     try {
+      const output = await this.usecase.execute(request);
+      return ok(output.user);
     } catch (error) {
       return serverError(error as Error);
     }
