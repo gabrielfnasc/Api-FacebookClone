@@ -27,6 +27,7 @@ export class UpdateUserUseCase
     if (!user) {
       throw new NotFoundHttpError("User not found!");
     }
-    user = await this.repository;
+    return { user };
+    // user = await this.repository;
   }
 }

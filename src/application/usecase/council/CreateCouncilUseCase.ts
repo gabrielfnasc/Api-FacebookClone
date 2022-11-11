@@ -6,6 +6,7 @@ import { UserRepository } from "../../repositories/UserRepository";
 import { Usecase } from "../UseCase";
 import { TypeRepository } from "../../repositories/TypeRepository";
 import { AlreadyExistError } from "../../../domain/erros/AlreadyExistsError";
+import { Validator } from "../../../domain/validator/validator";
 
 export type InputCreateCouncilDto = {
   userId: string;
@@ -18,19 +19,22 @@ export class CreateCouncilUseCase
   constructor(
     private readonly userRepo: UserRepository,
     private readonly businessCouncilRepo: CouncilRepository,
-    private readonly type: TypeRepository
+    private readonly type: TypeRepository,
+    private readonly validator: Validator
   ) {}
   async execute(data: InputCreateCouncilDto): Promise<void> {
+    this.validator.validate(data);
+
     //check if user exists
     const user = await this.userRepo.findById(data.userId);
     if (!user) {
       throw new NotFoundHttpError("User not found!");
     }
-    // check the length of the council content
-    const minLenght: number = 10;
-    if (data.council.content.length < minLenght) {
-      throw new RequiredMinLengthDomainError("content", minLenght);
-    }
+    // // check the length of the council content
+    // const minLenght: number = 10;
+    // if (data.council.content.length < minLenght) {
+    //   throw new RequiredMinLengthDomainError("content", minLenght);
+    // }
 
     //check if type is valid
     const typeName = await this.type.find(data.council.type.name);
