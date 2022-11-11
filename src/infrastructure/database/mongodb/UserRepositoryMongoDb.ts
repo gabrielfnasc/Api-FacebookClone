@@ -40,7 +40,11 @@ export class UserRepositoryMongoDB
   async delete(userId: string): Promise<void> {
     await this.getCollection.deleteOne({ _id: new ObjectId(userId) });
   }
-  update(data: InputUpdateUserDto): Promise<User> {
-    throw new Error("Method not implemented.");
+  async update(data: InputUpdateUserDto): Promise<void> {
+    const { userId, name, email } = data;
+    await this.getCollection.updateOne(
+      { _id: new ObjectId(userId) },
+      { $set: { name: name, email: email } }
+    );
   }
 }

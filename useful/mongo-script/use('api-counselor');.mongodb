@@ -1,14 +1,23 @@
 use('api-counselor');
 
-db.councils.updateOne(
-  {
-    'userId':'6366dd2da9d052a2bec7a2e5',
-    'councils.id':'62baa1fa-5bef-4285-846e-d2563438e392'
-  },
-  {
-      $set: {'councils.$.content': "knfoeinewpujoifbrifberoiufbrwofbriojugrrwfbwobfeee"}
-  }
-)
+db.users.updateOne({
+    _id: "636e5a773278c62d33de5d1e"
+}, {
+    $set: {
+        email: "email"
+    }
+})
+  
+
+// db.councils.updateOne(
+//   {
+//     'userId':'6366dd2da9d052a2bec7a2e5',
+//     'councils.id':'62baa1fa-5bef-4285-846e-d2563438e392'
+//   },
+//   {
+//       $set: {'councils.$.content': "knfoeinewpujoifbrifberoiufbrwofbriojugrrwfbwobfeee"}
+//   }
+
 // db.councils.updateOne({userId: "6366dd2da9d052a2bec7a2e5"}, {$pull: {councils: {id: "f44985fc-a065-43e1-9d06-d7a6f234f59e"}}})
 // db.users.findOne({ email : "theozinhocachorro2@gmail.com.br"});
 

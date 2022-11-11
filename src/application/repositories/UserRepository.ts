@@ -8,5 +8,5 @@ export interface UserRepository {
   findById(id: string): Promise<User>;
   delete(userId: string): Promise<void>;
   login(email: string): Promise<User>;
-  update(data: InputUpdateUserDto): Promise<User>;
+  update(data: InputUpdateUserDto): Promise<void>;
 }

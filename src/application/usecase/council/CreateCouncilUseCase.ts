@@ -18,7 +18,6 @@ export class CreateCouncilUseCase
   constructor(
     private readonly userRepo: UserRepository,
     private readonly businessCouncilRepo: CouncilRepository,
-
     private readonly type: TypeRepository
   ) {}
   async execute(data: InputCreateCouncilDto): Promise<void> {
