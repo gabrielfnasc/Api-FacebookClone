@@ -1,6 +1,7 @@
 import { CreateCouncilUseCase } from "../../../application/usecase/council/CreateCouncilUseCase";
 import { ValidatorComposite } from "../../../application/validator/ValidatorComposite";
 import { ValidatorInputLength } from "../../../application/validator/ValidatorInputLength";
+import { ValidatorInputLengthParamObject } from "../../../application/validator/ValidatorInputLengthParamObject";
 import { ValidatorRequiredParam } from "../../../application/validator/ValidatorRequiredParam";
 import { ValidatorRequiredParamObject } from "../../../application/validator/ValidatorRequiredParamObject";
 import { BaseController } from "../../controllers/BaseController";
@@ -17,7 +18,7 @@ export class CreateCouncilFactory {
       new ValidatorRequiredParamObject("type", "name"),
     ]);
     const validatorUseCase = new ValidatorComposite([
-      new ValidatorInputLength("content", 100),
+      new ValidatorInputLengthParamObject("council", "content", 100),
     ]);
 
     const userRepo = new UserRepositoryMongoDB();
