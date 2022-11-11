@@ -3,11 +3,6 @@ export interface User {
   name: string;
   email: string;
   password: string;
-  description: string;
-
   createdAt: Date;
-
   isActive: boolean;
-
-  isOn: boolean;
 }

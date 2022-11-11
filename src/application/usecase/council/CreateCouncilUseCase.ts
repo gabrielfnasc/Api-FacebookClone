@@ -46,6 +46,8 @@ export class CreateCouncilUseCase
     if (council) {
       throw new AlreadyExistError("Content");
     }
+
+    //db poderia ter um council e um userId como parametro
     await this.businessCouncilRepo.create({
       ...data,
     });
