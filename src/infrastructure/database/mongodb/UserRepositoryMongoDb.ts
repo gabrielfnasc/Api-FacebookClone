@@ -4,6 +4,7 @@ import { InputCreateUserDto } from "../../../application/usecase/user/CreateUser
 import { MongoHelper } from "./MongoHelper";
 import { User } from "../../../domain/entities/User";
 import { ObjectId } from "mongodb";
+import { InputUpdateUserDto } from "../../../application/usecase/user/UpdateUserUseCase";
 
 export class UserRepositoryMongoDB
   extends BaseMongoRepository
@@ -38,5 +39,8 @@ export class UserRepositoryMongoDB
   }
   async delete(userId: string): Promise<void> {
     await this.getCollection.deleteOne({ _id: new ObjectId(userId) });
+  }
+  update(data: InputUpdateUserDto): Promise<User> {
+    throw new Error("Method not implemented.");
   }
 }
