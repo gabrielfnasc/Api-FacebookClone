@@ -10,24 +10,18 @@ export type InputUpdateUserDto = {
   name: string;
 };
 
-export type OutputUpdateUserDto = {
-  user: User;
-};
-
-export class UpdateUserUseCase
-  implements Usecase<InputUpdateUserDto, OutputUpdateUserDto>
-{
+export class UpdateUserUseCase implements Usecase<InputUpdateUserDto, void> {
   constructor(
     private readonly validator: Validator,
     private readonly repository: UserRepository
   ) {}
-  async execute(data: InputUpdateUserDto): Promise<OutputUpdateUserDto> {
+  async execute(data: InputUpdateUserDto): Promise<void> {
     this.validator.validate(data);
     let user = await this.repository.findById(data.userId);
     if (!user) {
       throw new NotFoundHttpError("User not found!");
     }
-    return { user };
-    // user = await this.repository;
+
+    await this.repository.update(data);
   }
 }
