@@ -1,6 +1,6 @@
-import { User } from "../../domain/entities/User";
-import { InputCreateUserDto } from "../usecase/user/CreateUserUseCase";
-import { InputUpdateUserDto } from "../usecase/user/UpdateUserUseCase";
+import { User } from "@src/domain/entities/User";
+import { InputCreateUserDto } from "@src/application/usecase/user/CreateUserUseCase";
+import { InputUpdateUserDto } from "@src/application/usecase/user/UpdateUserUseCase";
 
 export interface UserRepository {
   create(data: InputCreateUserDto): Promise<string>;

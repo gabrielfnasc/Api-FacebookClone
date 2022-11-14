@@ -1,12 +1,11 @@
-import { Council } from "../../../domain/entities/Council";
-import { RequiredMinLengthDomainError } from "../../../domain/erros/RequiredMinLengthDomainError";
-import { NotFoundHttpError } from "../../../infrastructure/http/errors";
-import { CouncilRepository } from "../../repositories/CouncilRepository";
-import { UserRepository } from "../../repositories/UserRepository";
-import { Usecase } from "../UseCase";
-import { TypeRepository } from "../../repositories/TypeRepository";
-import { AlreadyExistError } from "../../../domain/erros/AlreadyExistsError";
-import { Validator } from "../../../domain/validator/validator";
+import { Council } from "@src/domain/entities/Council";
+import { NotFoundHttpError } from "@src/infrastructure/http/errors/NotFoundHttpError";
+import { CouncilRepository } from "@src/application/repositories";
+import { UserRepository } from "@src/application/repositories";
+import { Usecase } from "@src/application/usecase/UseCase";
+import { TypeRepository } from "@src/application/repositories";
+import { AlreadyExistError } from "@src/domain/erros/AlreadyExistsError";
+import { Validator } from "@src/domain/validator/validator";
 
 export type InputCreateCouncilDto = {
   userId: string;

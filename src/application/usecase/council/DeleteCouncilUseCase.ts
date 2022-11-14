@@ -1,7 +1,7 @@
-import { NotFoundHttpError } from "../../../infrastructure/http/errors";
-import { CouncilRepository } from "../../repositories/CouncilRepository";
-import { UserRepository } from "../../repositories/UserRepository";
-import { Usecase } from "../UseCase";
+import { NotFoundHttpError } from "@src/infrastructure/http/errors/NotFoundHttpError";
+import { CouncilRepository } from "@src/application/repositories/CouncilRepository";
+import { UserRepository } from "@src/application/repositories";
+import { Usecase } from "@src/application/usecase/UseCase";
 
 export type InputDeleteCouncilUseCase = {
   councilId: string;

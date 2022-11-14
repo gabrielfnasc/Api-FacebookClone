@@ -1,7 +1,7 @@
-import { Council } from "../../../domain/entities/Council";
-import { NotFoundHttpError } from "../../../infrastructure/http/errors";
-import { CouncilRepository } from "../../repositories/CouncilRepository";
-import { Usecase } from "../UseCase";
+import { Council } from "@src/domain/entities/Council";
+import { NotFoundHttpError } from "@src/infrastructure/http/errors";
+import { CouncilRepository } from "@src/application/repositories";
+import { Usecase } from "@src/application/usecase/UseCase";
 
 export type InputFindCouncilByContentDto = {
   content: string;
