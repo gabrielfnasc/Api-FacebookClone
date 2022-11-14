@@ -1,5 +1,5 @@
-import { HttpStatusCode } from "../../infrastructure/http/presentation/controllers/helpers/HttpStatusCode";
-import { ApiError } from "./ApiError";
+import { HttpStatusCode } from "@src/infrastructure/http/presentation/controllers/helpers/HttpStatusCode";
+import { ApiError } from "@src/domain/erros";
 
 export class AlreadyExistError extends ApiError {
   constructor(propertyName: string) {
