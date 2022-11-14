@@ -1,10 +1,14 @@
-import { CouncilRepository } from "../../../application/repositories/CouncilRepository";
-import { InputCreateCouncilDto } from "../../../application/usecase/council/CreateCouncilUseCase";
-import { InputDeleteCouncilUseCase } from "../../../application/usecase/council/DeleteCouncilUseCase";
-import { InputUpdateCouncilDto } from "../../../application/usecase/council/UpdateCouncilUseCase";
+import { CouncilRepository } from "@src/application/repositories";
+import {
+  InputCreateCouncilDto,
+  InputDeleteCouncilUseCase,
+  InputUpdateCouncilDto,
+} from "@src/application/usecase/council";
 import { Council } from "../../../domain/entities/Council";
-import { BaseMongoRepository } from "../mongodb/BaseMongoRepository";
-import { MongoHelper } from "../mongodb/MongoHelper";
+import {
+  BaseMongoRepository,
+  MongoHelper,
+} from "@src/infrastructure/database/mongodb";
 
 export class CouncilRepositoryMongoDb
   extends BaseMongoRepository

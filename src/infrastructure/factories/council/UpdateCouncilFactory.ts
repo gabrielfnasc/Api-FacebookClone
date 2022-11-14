@@ -1,10 +1,14 @@
-import { UpdateCouncilUseCase } from "../../../application/usecase/council/UpdateCouncilUseCase";
-import { ValidatorComposite } from "../../../application/validator/ValidatorComposite";
-import { ValidatorRequiredParam } from "../../../application/validator/ValidatorRequiredParam";
-import { BaseController } from "../../controllers/BaseController";
-import { UpdateCouncilController } from "../../controllers/council/UpdateCouncilController";
-import { CouncilRepositoryMongoDb } from "../../database/mongodb/CouncilRepositoryMongoDb";
-import { UserRepositoryMongoDB } from "../../database/mongodb/UserRepositoryMongoDb";
+import { UpdateCouncilUseCase } from "@src/application/usecase/council";
+import {
+  ValidatorComposite,
+  ValidatorRequiredParam,
+} from "@src/application/validator";
+import { BaseController } from "@src/infrastructure/controllers/BaseController";
+import { UpdateCouncilController } from "@src/infrastructure/controllers/council";
+import {
+  CouncilRepositoryMongoDb,
+  UserRepositoryMongoDB,
+} from "@src/infrastructure/database/mongodb";
 
 export class UpdateCouncilFactory {
   static build(): BaseController {

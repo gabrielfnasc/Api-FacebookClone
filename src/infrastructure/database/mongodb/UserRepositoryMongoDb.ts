@@ -1,10 +1,14 @@
-import { BaseMongoRepository } from "./BaseMongoRepository";
+import {
+  BaseMongoRepository,
+  MongoHelper,
+} from "@src/infrastructure/database/mongodb";
 import { UserRepository } from "../../../application/repositories/UserRepository";
-import { InputCreateUserDto } from "../../../application/usecase/user/CreateUserUseCase";
-import { MongoHelper } from "./MongoHelper";
-import { User } from "../../../domain/entities/User";
+import {
+  InputCreateUserDto,
+  InputUpdateUserDto,
+} from "@src/application/usecase/user";
+import { User } from "@src/domain/entities";
 import { ObjectId } from "mongodb";
-import { InputUpdateUserDto } from "../../../application/usecase/user/UpdateUserUseCase";
 
 export class UserRepositoryMongoDB
   extends BaseMongoRepository

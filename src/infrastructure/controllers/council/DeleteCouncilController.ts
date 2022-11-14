@@ -1,11 +1,11 @@
-import { DeleteCouncilUseCase } from "../../../application/usecase/council/DeleteCouncilUseCase";
-import { Validator } from "../../../domain/validator/validator";
-import { HttpResponse } from "../../http/presentation/controllers/helpers/Http";
+import { DeleteCouncilUseCase } from "@src/application/usecase/council";
+import { Validator } from "@src/domain/validator/validator";
+import { HttpResponse } from "@src/infrastructure/http/presentation/controllers/helpers";
 import {
   ok,
   serverError,
-} from "../../http/presentation/controllers/helpers/HttpHelper";
-import { BaseController } from "../BaseController";
+} from "@src/infrastructure/http/presentation/controllers/helpers";
+import { BaseController } from "@src/infrastructure/controllers/BaseController";
 
 export type DeleteCouncilRequestDto = {
   councilId: string;

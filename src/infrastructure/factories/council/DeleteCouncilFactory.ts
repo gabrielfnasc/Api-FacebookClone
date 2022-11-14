@@ -1,10 +1,14 @@
-import { DeleteCouncilUseCase } from "../../../application/usecase/council/DeleteCouncilUseCase";
-import { ValidatorComposite } from "../../../application/validator/ValidatorComposite";
-import { ValidatorRequiredParam } from "../../../application/validator/ValidatorRequiredParam";
-import { BaseController } from "../../controllers/BaseController";
-import { DeleteCouncilController } from "../../controllers/council/DeleteCouncilController";
-import { CouncilRepositoryMongoDb } from "../../database/mongodb/CouncilRepositoryMongoDb";
-import { UserRepositoryMongoDB } from "../../database/mongodb/UserRepositoryMongoDb";
+import { DeleteCouncilUseCase } from "@src/application/usecase/council";
+import {
+  ValidatorComposite,
+  ValidatorRequiredParam,
+} from "@src/application/validator";
+import { BaseController } from "@src/infrastructure/controllers/BaseController";
+import { DeleteCouncilController } from "@src/infrastructure/controllers/council";
+import {
+  CouncilRepositoryMongoDb,
+  UserRepositoryMongoDB,
+} from "../../database/mongodb";
 
 export class DeleteCouncilFactory {
   static build(): BaseController {

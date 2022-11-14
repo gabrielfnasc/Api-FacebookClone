@@ -1,4 +1,4 @@
-import { Hash } from "../../application/cryptography";
+import { Hash } from "@src/application/cryptography";
 import bcrypt from "bcrypt";
 
 export class BCryptAdapter implements Hash {

@@ -1,14 +1,16 @@
-import { CreateUserUseCase } from "../../../application/usecase/user/CreateUserUseCase";
-import { BaseController } from "../../controllers/BaseController";
-import { CreateUserController } from "../../controllers/User/CreateUserController";
-import { UserRepositoryMongoDB } from "../../database/mongodb/UserRepositoryMongoDb";
-import { ValidatorComposite } from "../../../application/validator/ValidatorComposite";
-import { ValidatorRequiredParam } from "../../../application/validator/ValidatorRequiredParam";
-import { ValidatorInputLength } from "../../../application/validator/ValidatorInputLength";
-import { ValidatorEmail } from "../../../application/validator/ValidatorEmail";
-import { JwtAdapter } from "../../adapters/JwtAdapter";
-import env from "../../http/config/env";
-import { BCryptAdapter } from "../../adapters/BCryptAdapter";
+import { CreateUserUseCase } from "@src/application/usecase/user";
+import { BaseController } from "@src/infrastructure/controllers/BaseController";
+import { CreateUserController } from "@src/infrastructure/controllers/User";
+import { UserRepositoryMongoDB } from "@src/infrastructure/database/mongodb";
+import {
+  ValidatorComposite,
+  ValidatorRequiredParam,
+  ValidatorInputLength,
+  ValidatorEmail,
+} from "@src/application/validator";
+import { JwtAdapter } from "@src/infrastructure/adapters";
+import env from "@src/infrastructure/http/config/env";
+import { BCryptAdapter } from "@src/infrastructure/adapters";
 
 export class CreateUserFactory {
   static build(): BaseController {

@@ -1,10 +1,10 @@
-import { UpdateCouncilUseCase } from "../../../application/usecase/council/UpdateCouncilUseCase";
-import { Validator } from "../../../domain/validator/validator";
-import { HttpResponse } from "../../http/presentation/controllers/helpers/Http";
+import { UpdateCouncilUseCase } from "@src/application/usecase/council";
+import { Validator } from "@src/domain/validator/validator";
+import { HttpResponse } from "@src/infrastructure/http/presentation/controllers/helpers";
 import {
   ok,
   serverError,
-} from "../../http/presentation/controllers/helpers/HttpHelper";
+} from "@src/infrastructure/http/presentation/controllers/helpers";
 import { BaseController } from "../BaseController";
 
 export type UpdateCouncilRequestDto = {

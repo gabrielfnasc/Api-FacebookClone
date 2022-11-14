@@ -1,7 +1,9 @@
-import { TypeRepository } from "../../../application/repositories/TypeRepository";
-import { Type } from "../../../domain/entities/Type";
-import { BaseMongoRepository } from "./BaseMongoRepository";
-import { MongoHelper } from "./MongoHelper";
+import { TypeRepository } from "@src/application/repositories";
+import { Type } from "@src/domain/entities";
+import {
+  MongoHelper,
+  BaseMongoRepository,
+} from "@src/infrastructure/database/mongodb";
 
 export class TypeRepositoryMongoDb
   extends BaseMongoRepository

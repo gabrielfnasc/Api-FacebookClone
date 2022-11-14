@@ -1,10 +1,12 @@
-import { UpdateUserUseCase } from "../../../application/usecase/user/UpdateUserUseCase";
-import { ValidatorComposite } from "../../../application/validator/ValidatorComposite";
-import { ValidatorEmail } from "../../../application/validator/ValidatorEmail";
-import { ValidatorRequiredParam } from "../../../application/validator/ValidatorRequiredParam";
-import { BaseController } from "../../controllers/BaseController";
-import { UpdateUserController } from "../../controllers/User/UpdateUserController";
-import { UserRepositoryMongoDB } from "../../database/mongodb/UserRepositoryMongoDb";
+import { UpdateUserUseCase } from "@src/application/usecase/user";
+import {
+  ValidatorComposite,
+  ValidatorEmail,
+  ValidatorRequiredParam,
+} from "@src/application/validator";
+import { BaseController } from "@src/infrastructure/controllers/BaseController";
+import { UpdateUserController } from "@src/infrastructure/controllers/User";
+import { UserRepositoryMongoDB } from "@src/infrastructure/database/mongodb";
 
 export class UpdateUserFactory {
   static build(): BaseController {

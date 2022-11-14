@@ -1,4 +1,4 @@
-import { HttpStatusCode } from "@src/infrastructure/http/presentation/controllers/helpers/HttpStatusCode";
+import { HttpStatusCode } from "@src/infrastructure/http/presentation/controllers/helpers";
 import { ApiError } from "@src/domain/erros";
 
 export class AlreadyExistError extends ApiError {

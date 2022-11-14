@@ -1,6 +1,6 @@
-import { FindCouncilByContentUseCase } from "../../../application/usecase/council/FindCouncilByContentUseCase";
-import { Validator } from "../../../domain/validator/validator";
-import { HttpResponse } from "../../http/presentation/controllers/helpers/Http";
+import { FindCouncilByContentUseCase } from "@src/application/usecase/council";
+import { Validator } from "@src/domain/validator/validator";
+import { HttpResponse } from "@src/infrastructure/http/presentation/controllers/helpers";
 import {
   ok,
   serverError,

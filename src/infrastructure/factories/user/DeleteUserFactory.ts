@@ -1,7 +1,7 @@
-import { DeleteUserUseCase } from "../../../application/usecase/user/DeleteUserUseCase";
-import { BaseController } from "../../controllers/BaseController";
-import { DeleteUserController } from "../../controllers/User/DeleteUserController";
-import { UserRepositoryMongoDB } from "../../database/mongodb/UserRepositoryMongoDb";
+import { DeleteUserUseCase } from "@src/application/usecase/user";
+import { BaseController } from "@src/infrastructure/controllers/BaseController";
+import { DeleteUserController } from "@src/infrastructure/controllers/User/DeleteUserController";
+import { UserRepositoryMongoDB } from "@src/infrastructure/database/mongodb";
 
 export class DeleteUserFactory {
   static build(): BaseController {

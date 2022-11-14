@@ -1,7 +1,7 @@
-import { FindUserByIdUseCase } from "../../../application/usecase/user/FindUserByIdUseCase";
-import { BaseController } from "../../controllers/BaseController";
-import { FindUserByIdController } from "../../controllers/User/FindUserByIdController";
-import { UserRepositoryMongoDB } from "../../database/mongodb/UserRepositoryMongoDb";
+import { FindUserByIdUseCase } from "@src/application/usecase/user";
+import { BaseController } from "@src/infrastructure/controllers/BaseController";
+import { FindUserByIdController } from "@src/infrastructure/controllers/User";
+import { UserRepositoryMongoDB } from "@src/infrastructure/database/mongodb";
 
 export class FindUSerByIdFactory {
   static build(): BaseController {

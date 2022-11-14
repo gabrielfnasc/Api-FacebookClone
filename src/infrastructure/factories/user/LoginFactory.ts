@@ -1,13 +1,14 @@
-import { LoginUseCase } from "../../../application/usecase/user/LoginUseCase";
-import { ValidatorComposite } from "../../../application/validator/ValidatorComposite";
-import { ValidatorEmail } from "../../../application/validator/ValidatorEmail";
-import { ValidatorRequiredParam } from "../../../application/validator/ValidatorRequiredParam";
-import { BCryptAdapter } from "../../adapters/BCryptAdapter";
-import { JwtAdapter } from "../../adapters/JwtAdapter";
-import { BaseController } from "../../controllers/BaseController";
-import { LoginController } from "../../controllers/User/LoginController";
-import { UserRepositoryMongoDB } from "../../database/mongodb/UserRepositoryMongoDb";
-import env from "../../http/config/env";
+import { LoginUseCase } from "@src/application/usecase/user/LoginUseCase";
+import {
+  ValidatorComposite,
+  ValidatorEmail,
+  ValidatorRequiredParam,
+} from "@src/application/validator";
+import { BCryptAdapter, JwtAdapter } from "@src/infrastructure/adapters";
+import { BaseController } from "@src/infrastructure/controllers/BaseController";
+import { LoginController } from "@src/infrastructure/controllers/User";
+import { UserRepositoryMongoDB } from "@src/infrastructure/database/mongodb";
+import env from "@src/infrastructure/http/config/env";
 
 export class LoginFactory {
   static build(): BaseController {

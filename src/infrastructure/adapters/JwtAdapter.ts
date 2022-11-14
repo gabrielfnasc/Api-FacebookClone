@@ -1,4 +1,4 @@
-import { Cryptography } from "../../application/cryptography/Cryptography";
+import { Cryptography } from "@src/application/cryptography";
 import * as jwt from "jsonwebtoken";
 
 export class JwtAdapter implements Cryptography {
