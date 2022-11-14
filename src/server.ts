@@ -1,3 +1,4 @@
+import "./infrastructure/useful/ModuleAlias";
 import env from "./infrastructure/http/config/env";
 import { MongoHelper } from "./infrastructure/database/mongodb/MongoHelper";
 
