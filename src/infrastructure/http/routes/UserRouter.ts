@@ -1,10 +1,10 @@
 import { Router } from "express";
-import { ExpressRouterAdapter } from "../../http/adapters/ExpressRouterAdapter";
-import { CreateUserFactory } from "../../factories/user/CreateUserFactory";
-import { DeleteUserFactory } from "../../factories/user/DeleteUserFactory";
-import { LoginFactory } from "../../factories/user/LoginFactory";
-import { FindUSerByIdFactory } from "../../factories/user/FindUserByIdFactory";
-import { UpdateUserFactory } from "../../factories/user/UpdateUserFactory";
+import { ExpressRouterAdapter } from "@src/infrastructure/http/adapters/ExpressRouterAdapter";
+import { CreateUserFactory } from "@src/infrastructure/factories/user";
+import { DeleteUserFactory } from "@src/infrastructure/factories/user";
+import { LoginFactory } from "@src/infrastructure/factories/user";
+import { FindUSerByIdFactory } from "@src/infrastructure/factories/user";
+import { UpdateUserFactory } from "@src/infrastructure/factories/user";
 
 export default (router: Router): void => {
   router.post("/user", ExpressRouterAdapter(CreateUserFactory.build()));

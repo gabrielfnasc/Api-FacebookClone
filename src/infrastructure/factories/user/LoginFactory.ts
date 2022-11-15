@@ -8,7 +8,7 @@ import { BCryptAdapter, JwtAdapter } from "@src/infrastructure/adapters";
 import { BaseController } from "@src/infrastructure/controllers/BaseController";
 import { LoginController } from "@src/infrastructure/controllers/User";
 import { UserRepositoryMongoDB } from "@src/infrastructure/database/mongodb";
-import env from "@src/infrastructure/http/config/env";
+import env from "@src/infrastructure/config/env";
 
 export class LoginFactory {
   static build(): BaseController {

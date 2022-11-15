@@ -1,5 +1,5 @@
-import { ApiError } from "../../../domain/erros/ApiError";
-import { HttpStatusCode } from "../../http/presentation/controllers/helpers/HttpStatusCode";
+import { ApiError } from "@src/domain/erros";
+import { HttpStatusCode } from "@src/infrastructure/http/presentation/controllers/helpers";
 
 export class BadRequestHttpError extends ApiError {
   constructor(message: string) {

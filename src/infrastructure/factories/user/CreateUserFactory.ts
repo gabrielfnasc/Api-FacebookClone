@@ -9,7 +9,7 @@ import {
   ValidatorEmail,
 } from "@src/application/validator";
 import { JwtAdapter } from "@src/infrastructure/adapters";
-import env from "@src/infrastructure/http/config/env";
+import env from "@src/infrastructure/config/env";
 import { BCryptAdapter } from "@src/infrastructure/adapters";
 
 export class CreateUserFactory {

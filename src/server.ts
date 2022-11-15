@@ -1,6 +1,6 @@
 import "./infrastructure/useful/ModuleAlias";
-import env from "./infrastructure/http/config/env";
-import { MongoHelper } from "./infrastructure/database/mongodb/MongoHelper";
+import env from "@src/infrastructure/config/env";
+import { MongoHelper } from "@src/infrastructure/database/mongodb";
 
 const PORT = env.port;
 

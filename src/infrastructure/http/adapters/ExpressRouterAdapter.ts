@@ -1,5 +1,5 @@
 import { Response, Request } from "express";
-import { BaseController } from "../../../infrastructure/controllers/BaseController";
+import { BaseController } from "@src/infrastructure/controllers/BaseController";
 export const ExpressRouterAdapter = (controller: BaseController): any => {
   const response = async (req: Request, res: Response) => {
     const request = {

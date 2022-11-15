@@ -1,5 +1,5 @@
-import { ApiError } from "../../../../../domain/erros/ApiError";
-import { HttpResponse } from "../helpers/Http";
+import { ApiError } from "@src/domain/erros";
+import { HttpResponse } from "@src/infrastructure/http/presentation/controllers/helpers";
 
 export const badRequest = (error: Error): HttpResponse => ({
   statusCode: 400,
