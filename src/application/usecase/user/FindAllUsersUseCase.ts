@@ -8,5 +8,9 @@ export type OutputFindAllUsersDto = {
 
 class FindAllUsersUseCase implements Usecase<void, OutputFindAllUsersDto> {
   constructor(private readonly repo: UserRepository) {}
-  async execute(data: void): Promise<OutputFindAllUsersDto> {}
+  async execute(data: void): Promise<OutputFindAllUsersDto> {
+    const users = await this.repo.findAllUsers();
+
+    return { users };
+  }
 }
