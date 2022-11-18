@@ -63,4 +63,10 @@ export class CouncilRepositoryMongoDb
       $pull: { councils: { id: councilId } },
     });
   }
+
+  async findAllCouncils(): Promise<Council[]> {
+    const councils = await this.getCollection.find({}).toArray();
+
+    return councils && MongoHelper.mapCollection(councils);
+  }
 }
