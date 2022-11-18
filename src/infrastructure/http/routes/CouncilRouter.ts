@@ -1,10 +1,12 @@
 import { Router } from "express";
-import { CreateCouncilFactory } from "@src/infrastructure/factories/council";
+import {
+  CreateCouncilFactory,
+  FindAllCouncilsFactory,
+} from "@src/infrastructure/factories/council";
 import { DeleteCouncilFactory } from "@src/infrastructure/factories/council";
 import { FindCouncilByContentFactory } from "@src/infrastructure/factories/council";
 import { UpdateCouncilFactory } from "@src/infrastructure/factories/council";
 import { ExpressRouterAdapter } from "@src/infrastructure/http/adapters/ExpressRouterAdapter";
-import { FindAllUserFactory } from "@src/infrastructure/factories/user";
 
 export default (router: Router): void => {
   router.post(
@@ -26,5 +28,5 @@ export default (router: Router): void => {
     ExpressRouterAdapter(UpdateCouncilFactory.build())
   );
 
-  router.get("/councils", ExpressRouterAdapter(FindAllUserFactory.build()));
+  router.get("/councils", ExpressRouterAdapter(FindAllCouncilsFactory.build()));
 };
