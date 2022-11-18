@@ -1,6 +1,6 @@
 import { CouncilRepository } from "@src/application/repositories";
 import { Council } from "@src/domain/entities";
-import { Usecase } from "../UseCase";
+import { Usecase } from "@src/application/usecase/UseCase";
 
 export type OutputFindAllCouncilsDto = {
   councils: Council[];
