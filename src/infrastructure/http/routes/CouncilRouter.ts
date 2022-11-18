@@ -4,6 +4,7 @@ import { DeleteCouncilFactory } from "@src/infrastructure/factories/council";
 import { FindCouncilByContentFactory } from "@src/infrastructure/factories/council";
 import { UpdateCouncilFactory } from "@src/infrastructure/factories/council";
 import { ExpressRouterAdapter } from "@src/infrastructure/http/adapters/ExpressRouterAdapter";
+import { FindAllUserFactory } from "@src/infrastructure/factories/user";
 
 export default (router: Router): void => {
   router.post(
@@ -24,4 +25,6 @@ export default (router: Router): void => {
     "/council/:userId",
     ExpressRouterAdapter(UpdateCouncilFactory.build())
   );
+
+  router.get("/councils", ExpressRouterAdapter(FindAllUserFactory.build()));
 };
