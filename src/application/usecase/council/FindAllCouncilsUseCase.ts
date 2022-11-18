@@ -10,5 +10,9 @@ export class FindAllCouncilsUseCase
   implements Usecase<void, OutputFindAllCouncilsDto>
 {
   constructor(private readonly repo: CouncilRepository) {}
-  async execute(data: void): Promise<OutputFindAllCouncilsDto> {}
+  async execute(): Promise<OutputFindAllCouncilsDto> {
+    const councils = await this.repo.findAllCouncils();
+
+    return { councils };
+  }
 }
