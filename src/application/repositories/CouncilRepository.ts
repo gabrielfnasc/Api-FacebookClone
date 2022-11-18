@@ -13,4 +13,6 @@ export interface CouncilRepository {
   delete(data: InputDeleteCouncilUseCase): Promise<void>;
 
   updateContent(data: InputUpdateCouncilDto): Promise<void>;
+
+  findAllCouncils(): Promise<Council[]>;
 }
