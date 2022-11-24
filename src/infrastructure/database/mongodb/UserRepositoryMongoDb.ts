@@ -58,4 +58,9 @@ export class UserRepositoryMongoDB
       }
     );
   }
+  async findAllUsers(): Promise<User[]> {
+    const usersDocument = await this.getCollection.find({}).toArray();
+
+    return usersDocument && MongoHelper.mapCollection(usersDocument);
+  }
 }
