@@ -1,4 +1,4 @@
-import { BCryptAdapter } from '@src/infrastructure/adapters';
+import { BCryptAdapter } from '@src/infrastructure/adapters/BCryptAdapter';
 
 describe('Users functional tests', () => {
   const bcrypt = new BCryptAdapter(12);

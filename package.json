@@ -5,9 +5,10 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "jest",
+    "test": "jest -c ./jest.unit.json",
     "build": "rimraf dist && tsc",
-    "dev": "nodemon src/server.ts"
+    "dev": "nodemon src/server.ts",
+    "test:coverage": "jest --coverage -c ./jest.unit.json"
   },
   "repository": {
     "type": "git",
