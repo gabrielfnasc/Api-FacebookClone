@@ -3,7 +3,6 @@
   "description": "Api which users can share and receive council",
   "version": "1.0.0",
   "main": "index.js",
-  "type": "module",
   "scripts": {
     "test": "jest -c ./jest.unit.json",
     "build": "rimraf dist && tsc",
