@@ -1,6 +1,7 @@
-import { RequiredMinLengthDomainError } from "../../domain/erros";
-import { Validator } from "../../domain/validator/validator";
-import { RequiredParamHttpError } from "../../infrastructure/http/errors";
+/* eslint-disable no-prototype-builtins */
+import { RequiredMinLengthDomainError } from '../../domain/erros';
+import { Validator } from '../../domain/validator/validator';
+import { RequiredParamHttpError } from '../../infrastructure/http/errors';
 
 export class ValidatorInputLengthParamObject implements Validator {
   constructor(
