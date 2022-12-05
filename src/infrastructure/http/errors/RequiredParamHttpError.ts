@@ -1,4 +1,4 @@
-import { ApiError } from '@src/domain/erros';
+import { ApiError } from '@src/domain/errors';
 import { HttpStatusCode } from '@src/infrastructure/http/presentation/controllers/helpers';
 
 export class RequiredParamHttpError extends ApiError {

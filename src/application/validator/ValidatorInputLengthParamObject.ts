@@ -1,5 +1,5 @@
 /* eslint-disable no-prototype-builtins */
-import { RequiredMinLengthDomainError } from '../../domain/erros';
+import { RequiredMinLengthDomainError } from '../../domain/errors';
 import { Validator } from '../../domain/validator/validator';
 import { RequiredParamHttpError } from '../../infrastructure/http/errors';
 

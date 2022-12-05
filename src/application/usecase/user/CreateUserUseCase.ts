@@ -1,8 +1,8 @@
-import { Usecase } from "../UseCase";
-import { UserRepository } from "../../repositories/UserRepository";
-import { Validator } from "../../../domain/validator/validator";
-import { Cryptography, Hash } from "../../cryptography";
-import { EmailAlreadyRegisteredError } from "../../../domain/erros";
+import { Usecase } from '../UseCase';
+import { UserRepository } from '@src/application/repositories';
+import { Validator } from '@src/domain/validator/validator';
+import { Cryptography, Hash } from '@src/application/cryptography';
+import { EmailAlreadyRegisteredError } from '@src/domain/errors';
 
 export type InputCreateUserDto = {
   name: string;
@@ -16,9 +16,7 @@ export type OutputCreateUserDto = {
   accessToken: string;
 };
 
-export class CreateUserUseCase
-  implements Usecase<InputCreateUserDto, OutputCreateUserDto>
-{
+export class CreateUserUseCase implements Usecase<InputCreateUserDto, OutputCreateUserDto> {
   constructor(
     private readonly repository: UserRepository,
     private readonly validator: Validator,

@@ -1,20 +1,18 @@
-import { Council } from "@src/domain/entities/Council";
-import { NotFoundHttpError } from "@src/infrastructure/http/errors/NotFoundHttpError";
-import { CouncilRepository } from "@src/application/repositories";
-import { UserRepository } from "@src/application/repositories";
-import { Usecase } from "@src/application/usecase/UseCase";
-import { TypeRepository } from "@src/application/repositories";
-import { AlreadyExistError } from "@src/domain/erros/AlreadyExistsError";
-import { Validator } from "@src/domain/validator/validator";
+import { Council } from '@src/domain/entities/Council';
+import { NotFoundHttpError } from '@src/infrastructure/http/errors/NotFoundHttpError';
+import { CouncilRepository } from '@src/application/repositories';
+import { UserRepository } from '@src/application/repositories';
+import { Usecase } from '@src/application/usecase/UseCase';
+import { TypeRepository } from '@src/application/repositories';
+import { AlreadyExistError } from '@src/domain/errors/AlreadyExistsError';
+import { Validator } from '@src/domain/validator/validator';
 
 export type InputCreateCouncilDto = {
   userId: string;
   council: Council;
 };
 
-export class CreateCouncilUseCase
-  implements Usecase<InputCreateCouncilDto, void>
-{
+export class CreateCouncilUseCase implements Usecase<InputCreateCouncilDto, void> {
   constructor(
     private readonly userRepo: UserRepository,
     private readonly businessCouncilRepo: CouncilRepository,
@@ -27,7 +25,7 @@ export class CreateCouncilUseCase
     //check if user exists
     const user = await this.userRepo.findById(data.userId);
     if (!user) {
-      throw new NotFoundHttpError("User not found!");
+      throw new NotFoundHttpError('User not found!');
     }
 
     //check if type is valid
@@ -37,11 +35,9 @@ export class CreateCouncilUseCase
     }
 
     //check if the user don´t repeat the same content
-    const council = await this.businessCouncilRepo.findOneCouncilByContent(
-      data.council.content
-    );
+    const council = await this.businessCouncilRepo.findOneCouncilByContent(data.council.content);
     if (council) {
-      throw new AlreadyExistError("Content");
+      throw new AlreadyExistError('Content');
     }
 
     //db poderia ter um council e um userId como parametro

@@ -1,6 +1,6 @@
-import { InvalidEmailDomainError } from "../../domain/erros/EmailInvalidDomainError";
-import { Validator } from "../../domain/validator/validator";
-import { Email } from "../../domain/objectsValue/Email";
+import { InvalidEmailDomainError } from '../../domain/errors/EmailInvalidDomainError';
+import { Validator } from '../../domain/validator/validator';
+import { Email } from '../../domain/objectsValue/Email';
 
 export class ValidatorEmail implements Validator {
   constructor(private readonly paramName: string) {}
