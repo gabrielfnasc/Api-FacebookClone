@@ -9,6 +9,9 @@
     "dev": "nodemon src/server.ts",
     "test:coverage": "jest --coverage -c ./jest.unit.json"
   },
+  "engines": {
+    "node": "16.14.2"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/gabrielfnasc/api-counselor.git"
