@@ -10,7 +10,7 @@
     "test:coverage": "jest --coverage -c ./jest.unit.json"
   },
   "engines": {
-    "node": "16.14.2"
+    "node": "17.x"
   },
   "repository": {
     "type": "git",
